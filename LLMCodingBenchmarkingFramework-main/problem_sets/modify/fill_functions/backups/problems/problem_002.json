@@ -1,0 +1,38 @@
+{
+    "identifier": "problem_2",
+    "description": "Calculate the closest points distance between two contours.",
+    "prompts": [
+        {
+            "prompt_id": "prompt",
+            "prompt": "Please fix an incomplete function `closest_points_distance` that calculates the distance between the closest points of two given contours. Each contour is represented as a list of points, where each point is a list of two integers representing the x and y coordinates.",
+            "genericize": false,
+            "input_code": "import numpy as np\n\ndef closest_points_distance(contour1: List[List[int]], contour2: List[List[int]]) -> float:\n    min_distance = float('inf')\n    for point1 in contour1:\n        # A line of code is missing here\n        if distance < min_distance:\n            min_distance = distance\n    return min_distance"
+        }
+    ],
+    "function_prototype": {
+        "function_name": "closest_points_distance",
+        "parameters": [
+            {"name": "contour1", "type": "List[List[int]]"},
+            {"name": "contour2", "type": "List[List[int]]"}
+        ],
+        "return_values": [{"type": "float"}]
+    },
+    "correctness_test_suite": [
+        {
+            "input": {
+                "contour1": [[0, 0], [4, 0], [4, 3], [0, 3]],
+                "contour2": [[5, 5], [9, 5], [9, 8], [5, 8]]
+            },
+            "expected_output": [2.23606797749979]
+        },
+        {
+            "input": {
+                "contour1": [[1, 1], [2, 1], [2, 2], [1, 2]],
+                "contour2": [[3, 3], [4, 3], [4, 4], [3, 4]]
+            },
+            "expected_output": [1.4142135623730951]
+        }
+    ],
+    "optimal_solution": "import numpy as np\n\ndef closest_points_distance(contour1: List[List[int]], contour2: List[List[int]]) -> float:\n    min_distance = float('inf')\n    for point1 in contour1:\n        for point2 in contour2:\n            distance = np.linalg.norm(np.array(point1) - np.array(point2))\n            if distance < min_distance:\n                min_distance = distance\n    return min_distance",
+    "tags": ["Geometry", "Closest Points", "Distance Calculation", "Intermediate"]
+}

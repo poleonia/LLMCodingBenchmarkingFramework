@@ -1,0 +1,7 @@
+{
+    "problem_identifier": "problem_9",
+    "model_identifier": "gpt-4",
+    "prompt_identifier": "prompt",
+    "solution_code": "import numpy as np\nimport cv2\nfrom typing import List\n\ndef overlap_area(contour1: List[List[int]], contour2: List[List[int]]) -> int:\n    # Create blank images to draw contours\n    image1 = np.zeros((100, 100), dtype=np.uint8)\n    image2 = np.zeros((100, 100), dtype=np.uint8)\n    \n    # Draw contours on the images\n    cv2.drawContours(image1, [np.array(contour1)], 0, 255, thickness=cv2.FILLED)\n    cv2.drawContours(image2, [np.array(contour2)], 0, 255, thickness=cv2.FILLED)\n    \n    # Use bitwise AND to find the common area\n    overlap = np.sum(cv2.bitwise_and(image1, image2) > 0)\n    \n    return overlap\n",
+    "feedback": null
+}

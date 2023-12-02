@@ -1,0 +1,38 @@
+{
+    "identifier": "problem_10",
+    "description": "Check if one contour is vertically stacked above another contour without any overlap.",
+    "prompts": [
+        {
+            "prompt_id": "prompt",
+            "prompt": "Please fix an incomplete function `vertical_stacking_check` that determines if one given contour is vertically stacked above another without overlapping. Each contour is represented as a list of points, where each point is a list of two integers representing the x and y coordinates. The function should return True if the first contour is vertically above the second contour without any overlap, otherwise False.",
+            "genericize": false,
+            "input_code": "import numpy as np\n\ndef vertical_stacking_check(contour1: List[List[int]], contour2: List[List[int]]) -> bool:\n    max_y_contour1 = max(contour1, key=lambda point: point[1])[1]\n    # A line of code is missing here\n    return max_y_contour1 < min_y_contour2"
+        }
+    ],
+    "function_prototype": {
+        "function_name": "vertical_stacking_check",
+        "parameters": [
+            {"name": "contour1", "type": "List[List[int]]"},
+            {"name": "contour2", "type": "List[List[int]]"}
+        ],
+        "return_values": [{"type": "bool"}]
+    },
+    "correctness_test_suite": [
+        {
+            "input": {
+                "contour1": [[10, 10], [30, 10], [30, 20], [10, 20]],
+                "contour2": [[20, 30], [40, 30], [40, 40], [20, 40]]
+            },
+            "expected_output": [true]
+        },
+        {
+            "input": {
+                "contour1": [[5, 5], [15, 5], [15, 15], [5, 15]],
+                "contour2": [[10, 16], [20, 16], [20, 26], [10, 26]]
+            },
+            "expected_output": [true]
+        }
+    ],
+    "optimal_solution": "import numpy as np\n\ndef vertical_stacking_check(contour1: List[List[int]], contour2: List[List[int]]) -> bool:\n    max_y_contour1 = max(contour1, key=lambda point: point[1])[1]\n    min_y_contour2 = min(contour2, key=lambda point: point[1])[1]\n    return max_y_contour1 < min_y_contour2",
+    "tags": ["Geometry", "Vertical Stacking", "Contour", "Intermediate"]
+}

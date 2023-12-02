@@ -1,0 +1,24 @@
+{
+    "identifier": "problem_1",
+    "description": "Write a function that finds the second largest number in a list of integers.",
+    "prompts": [
+        {
+            "prompt_id": "find_second_largest",
+            "prompt": "The function `find_second_largest` should return the second largest integer from a list. The current implementation has a logical error that needs to be corrected.",
+            "genericize": false,
+            "input_code": "def find_second_largest(numbers: list) -> int:\n    largest = max(numbers)\n    second_largest = min(numbers)\n    for number in numbers:\n        if largest > number > second_largest:\n            second_largest = number\n    return largest  # Returning 'largest' is a logical error"
+        }
+    ],
+    "function_prototype": {
+        "function_name": "find_second_largest",
+        "parameters": [{"name": "numbers", "type": "list"}],
+        "return_values": [{"type": "int"}]
+    },
+    "correctness_test_suite": [
+        {"input": {"numbers": [7, 0, 19, 19, 8]}, "expected_output": [8]},
+        {"input": {"numbers": [45, 56, 32, 55, 34, 85]}, "expected_output": [56]}
+    ],
+    "optimal_solution": "def find_second_largest(numbers: list) -> int:\n    first, second = float('-inf'), float('-inf')\n    for number in numbers:\n        if number > first:\n            second = first\n            first = number\n        elif first > number > second:\n            second = number\n    return second",
+    "additional_instructions": "Ensure that the function handles lists with duplicate integers correctly.",
+    "tags": ["List", "Second Largest", "Easy", "Logic Error"]
+}

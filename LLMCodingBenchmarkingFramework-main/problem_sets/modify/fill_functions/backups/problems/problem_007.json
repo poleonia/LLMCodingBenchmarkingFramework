@@ -1,0 +1,38 @@
+{
+    "identifier": "problem_7",
+    "description": "Compare the orientations of two contours.",
+    "prompts": [
+        {
+            "prompt_id": "prompt",
+            "prompt": "Please fix an incomplete function `orientation_comparison` that compares the orientations of two given contours. Each contour is represented as a list of points, where each point is a list of two integers representing the x and y coordinates. The function should return the absolute difference in orientation between the two contours, measured in degrees.",
+            "genericize": false,
+            "input_code": "import numpy as np\nimport math\n\ndef orientation_comparison(contour1: List[List[int]], contour2: List[List[int]]) -> float:\n    def calculate_angle(contour):\n        vector = np.mean(contour, axis=0) - contour[0]\n        angle = math.atan2(vector[1], vector[0])\n        return math.degrees(angle)\n    angle1 = calculate_angle(contour1)\n    # A line of code is missing here\n    return abs(angle1 - angle2)"
+        }
+    ],
+    "function_prototype": {
+        "function_name": "orientation_comparison",
+        "parameters": [
+            {"name": "contour1", "type": "List[List[int]]"},
+            {"name": "contour2", "type": "List[List[int]]"}
+        ],
+        "return_values": [{"type": "float"}]
+    },
+    "correctness_test_suite": [
+        {
+            "input": {
+                "contour1": [[0, 0], [2, 0], [2, 2], [0, 2]],
+                "contour2": [[1, 1], [3, 1], [3, 3], [1, 3]]
+            },
+            "expected_output": [0.0]
+        },
+        {
+            "input": {
+                "contour1": [[1, 1], [3, 1], [3, 3], [1, 3]],
+                "contour2": [[4, 4], [6, 4], [6, 6], [4, 6]]
+            },
+            "expected_output": [0.0]
+        }
+    ],
+    "optimal_solution": "import numpy as np\nimport math\n\ndef orientation_comparison(contour1: List[List[int]], contour2: List[List[int]]) -> float:\n    def calculate_angle(contour):\n        vector = np.mean(contour, axis=0) - contour[0]\n        angle = math.atan2(vector[1], vector[0])\n        return math.degrees(angle)\n    angle1 = calculate_angle(contour1)\n    angle2 = calculate_angle(contour2)\n    return abs(angle1 - angle2)",
+    "tags": ["Geometry", "Orientation Comparison", "Contour", "Intermediate"]
+}

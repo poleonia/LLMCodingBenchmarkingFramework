@@ -1,0 +1,24 @@
+{
+    "identifier": "problem_17",
+    "description": "Write a function that calculates the average of a list of numbers.",
+    "prompts": [
+        {
+            "prompt_id": "calculate_average",
+            "prompt": "The function `calculate_average` is meant to calculate the average of a list of numbers. The current code has a logical flaw that needs to be resolved.",
+            "genericize": false,
+            "input_code": "def calculate_average(numbers: list) -> float:\n    total = sum(numbers)\n    count = len(numbers) - 1  # This is logically incorrect\n    return total / count"
+        }
+    ],
+    "function_prototype": {
+        "function_name": "calculate_average",
+        "parameters": [{"name": "numbers", "type": "list"}],
+        "return_values": [{"type": "float"}]
+    },
+    "correctness_test_suite": [
+        {"input": {"numbers": [6, 7, 8, 9, 10]}, "expected_output": [8]},
+        {"input": {"numbers": [15, 18, 22]}, "expected_output": [18.333333333333332]}
+    ],
+    "optimal_solution": "def calculate_average(numbers: list) -> float:\n    total = sum(numbers)\n    count = len(numbers)\n    return total / count if count else 0",
+    "additional_instructions": "Ensure the function handles an empty list by returning 0.",
+    "tags": ["List", "Average", "Easy", "Logic Error"]
+}

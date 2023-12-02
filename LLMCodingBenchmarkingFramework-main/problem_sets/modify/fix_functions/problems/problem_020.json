@@ -1,0 +1,24 @@
+{
+    "identifier": "problem_20",
+    "description": "Create a function that counts the number of occurrences of a specific character in a given string.",
+    "prompts": [
+        {
+            "prompt_id": "count_char_occurrences",
+            "prompt": "The function `count_char_occurrences` should return the number of times a specific character appears in a string. There's a logical error in the current implementation that needs to be fixed.",
+            "genericize": false,
+            "input_code": "def count_char_occurrences(s: str, char: str) -> int:\n    count = 0\n    for c in s:\n        if c == char:\n            count += 1\n    return count / 2  # Dividing by 2 is a logical error"
+        }
+    ],
+    "function_prototype": {
+        "function_name": "count_char_occurrences",
+        "parameters": [{"name": "s", "type": "str"}, {"name": "char", "type": "str"}],
+        "return_values": [{"type": "int"}]
+    },
+    "correctness_test_suite": [
+        {"input": {"s": "banana", "char": "a"}, "expected_output": [3]},
+        {"input": {"s": "mississippi", "char": "i"}, "expected_output": [4]}
+    ],
+    "optimal_solution": "def count_char_occurrences(s: str, char: str) -> int:\n    count = 0\n    for c in s:\n        if c == char:\n            count += 1\n    return count",
+    "additional_instructions": "Consider the case sensitivity of the character being counted.",
+    "tags": ["String", "Count", "Character", "Easy", "Logic Error"]
+}

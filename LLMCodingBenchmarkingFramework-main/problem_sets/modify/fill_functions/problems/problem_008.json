@@ -1,0 +1,38 @@
+{
+    "identifier": "problem_8",
+    "description": "Check if one contour is completely contained within another contour.",
+    "prompts": [
+        {
+            "prompt_id": "prompt",
+            "prompt": "Please fix an incomplete function `contour_containment_check` that determines if one given contour is completely contained within another. Each contour is represented as a list of points, where each point is a list of two integers representing the x and y coordinates. The function should return True if the first contour is completely contained within the second contour, otherwise False.",
+            "genericize": false,
+            "input_code": "import numpy as np\nimport cv2\n\ndef contour_containment_check(contour1: List[List[int]], contour2: List[List[int]]) -> bool:\n    for point in contour1:\n        # A line of code is missing here\n        return False\n    return True"
+        }
+    ],
+    "function_prototype": {
+        "function_name": "contour_containment_check",
+        "parameters": [
+            {"name": "contour1", "type": "List[List[int]]"},
+            {"name": "contour2", "type": "List[List[int]]"}
+        ],
+        "return_values": [{"type": "bool"}]
+    },
+    "correctness_test_suite": [
+        {
+            "input": {
+                "contour1": [[1, 1], [2, 1], [2, 2], [1, 2]],
+                "contour2": [[0, 0], [3, 0], [3, 3], [0, 3]]
+            },
+            "expected_output": [true]
+        },
+        {
+            "input": {
+                "contour1": [[4, 4], [5, 4], [5, 5], [4, 5]],
+                "contour2": [[0, 0], [3, 0], [3, 3], [0, 3]]
+            },
+            "expected_output": [false]
+        }
+    ],
+    "optimal_solution": "import numpy as np\nimport cv2\n\ndef contour_containment_check(contour1: List[List[int]], contour2: List[List[int]]) -> bool:\n    for point in contour1:\n        if cv2.pointPolygonTest(np.array(contour2, dtype=np.float32), tuple(point), False) < 0:\n            return False\n    return True",
+    "tags": ["Geometry", "Contour Containment", "Contour", "Intermediate"]
+}

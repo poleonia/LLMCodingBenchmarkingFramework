@@ -1,0 +1,24 @@
+{
+    "identifier": "problem_13",
+    "description": "Write a function that determines if an integer is even.",
+    "prompts": [
+        {
+            "prompt_id": "is_even",
+            "prompt": "The function `is_even` should return `True` if an integer is even, otherwise `False`. However, the function is currently not working correctly due to a logical error.",
+            "genericize": false,
+            "input_code": "def is_even(n: int) -> bool:\n    return n % 3 == 0"
+        }
+    ],
+    "function_prototype": {
+        "function_name": "is_even",
+        "parameters": [{"name": "n", "type": "int"}],
+        "return_values": [{"type": "bool"}]
+    },
+    "correctness_test_suite": [
+        {"input": {"n": 2}, "expected_output": [true]},
+        {"input": {"n": 3}, "expected_output": [false]}
+    ],
+    "optimal_solution": "def is_even(n: int) -> bool:\n    return n % 2 == 0",
+    "additional_instructions": "None.",
+    "tags": ["Math", "Even", "Easy", "Logic Error"]
+}

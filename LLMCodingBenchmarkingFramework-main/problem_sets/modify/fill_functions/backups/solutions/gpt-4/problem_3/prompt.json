@@ -1,0 +1,7 @@
+{
+    "problem_identifier": "problem_3",
+    "model_identifier": "gpt-4",
+    "prompt_identifier": "prompt",
+    "solution_code": "import numpy as np\nfrom typing import List\nimport math\n\ndef furthest_points_distance(contour1: List[List[int]], contour2: List[List[int]]) -> float:\n    max_distance = 0\n    \n    for point1 in contour1:\n        for point2 in contour2:\n            # Calculate the Euclidean distance between point1 and point2\n            distance = math.sqrt((point1[0] - point2[0]) ** 2 + (point1[1] - point2[1]) ** 2)\n            \n            # Check if the current distance is greater than the maximum distance found so far\n            if distance > max_distance:\n                max_distance = distance\n    \n    return max_distance\n",
+    "feedback": null
+}

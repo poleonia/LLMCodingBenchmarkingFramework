@@ -1,0 +1,24 @@
+{
+    "identifier": "problem_3",
+    "description": "Write a function to check if a number is prime.",
+    "prompts": [
+        {
+            "prompt_id": "is_prime",
+            "prompt": "The function `is_prime` should return `True` if the given integer is a prime number, otherwise `False`. The current implementation has bugs. Debug and fix it to correctly identify prime numbers.",
+            "genericize": false,
+            "input_code": "def is_prime(n: int) -> bool:\n    if n <= 1:\n        return False\n    for i in range(2, n):\n        if n % i = 0:\n            return False\n    return True"
+        }
+    ],
+    "function_prototype": {
+        "function_name": "is_prime",
+        "parameters": [{"name": "n", "type": "int"}],
+        "return_values": [{"type": "bool"}]
+    },
+    "correctness_test_suite": [
+        {"input": {"n": 11}, "expected_output": [true]},
+        {"input": {"n": 4}, "expected_output": [false]}
+    ],
+    "optimal_solution": "def is_prime(n: int) -> bool:\n    if n <= 1:\n        return False\n    for i in range(2, int(n**0.5)+1):\n        if n % i == 0:\n            return False\n    return True",
+    "additional_instructions": "Make sure to check for edge cases, such as n being negative or 0.",
+    "tags": ["Math", "Prime", "Easy", "Syntax Error"]
+}

@@ -1,0 +1,38 @@
+{
+    "identifier": "problem_20",
+    "description": "Measure and compare the alignment of each contour with its principal axis.",
+    "prompts": [
+        {
+            "prompt_id": "prompt",
+            "prompt": "Please fix an incomplete function `principal_axis_alignment_comparison` that measures and compares the alignment of two given contours with their principal axes. The principal axis of a contour is the line that best fits the contour points. Each contour is represented as a list of points, where each point is a list of two integers representing the x and y coordinates. The function should return the absolute difference in the average distances of the contour points from the principal axis for the two contours.",
+            "genericize": false,
+            "input_code": "import numpy as np\nimport cv2\n\ndef principal_axis_alignment_comparison(contour1: List[List[int]], contour2: List[List[int]]) -> float:\n    def alignment_distance(contour):\n        # Fit a line to the contour points and calculate average distance\n        # A line of code is missing here\n        return avg_distance\n    alignment1 = alignment_distance(contour1)\n    alignment2 = alignment_distance(contour2)\n    return abs(alignment1 - alignment2)"
+        }
+    ],
+    "function_prototype": {
+        "function_name": "principal_axis_alignment_comparison",
+        "parameters": [
+            {"name": "contour1", "type": "List[List[int]]"},
+            {"name": "contour2", "type": "List[List[int]]"}
+        ],
+        "return_values": [{"type": "float"}]
+    },
+    "correctness_test_suite": [
+        {
+            "input": {
+                "contour1": [[0, 0], [1, 0], [1, 1], [0, 1]],
+                "contour2": [[1, 1], [2, 1], [2, 2], [1, 2]]
+            },
+            "expected_output": [0.0]
+        },
+        {
+            "input": {
+                "contour1": [[1, 1], [2, 1], [2, 2], [1, 2]],
+                "contour2": [[2, 2], [3, 2], [3, 3], [2, 3]]
+            },
+            "expected_output": [0.0]
+        }
+    ],
+    "optimal_solution": "import numpy as np\nimport cv2\n\ndef principal_axis_alignment_comparison(contour1: List[List[int]], contour2: List[List[int]]) -> float:\n    def alignment_distance(contour):\n        # Fit a line to the contour points\n        [vx, vy, x, y] = cv2.fitLine(np.array(contour, dtype=np.float32), cv2.DIST_L2, 0, 0.01, 0.01)\n        # Calculate average distance of contour points from this line\n        avg_distance = np.mean([abs(vy*px - vx*py + vx*y - vy*x) / np.sqrt(vx**2 + vy**2) for px, py in contour])\n        return avg_distance\n    alignment1 = alignment_distance(contour1)\n    alignment2 = alignment_distance(contour2)\n    return abs(alignment1 - alignment2)",
+    "tags": ["Geometry", "Principal Axis", "Alignment", "Contour", "Intermediate"]
+}

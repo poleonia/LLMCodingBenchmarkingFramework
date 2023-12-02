@@ -1,0 +1,7 @@
+{
+    "problem_identifier": "007",
+    "model_identifier": "gpt-4",
+    "prompt_identifier": "optimization for runtime on cpu",
+    "solution_code": "import numpy as np\ndef solve_problem_007_cpu_numpy(A, B, c1, c2):\n    A_np = np.array(A)\n    B_np = np.array(B)\n    linear_combination = c1 * A_np + c2 * B_np\n    frobenius_norm = np.linalg.norm(linear_combination, 'fro')\n    return frobenius_norm",
+    "feedback": null
+}

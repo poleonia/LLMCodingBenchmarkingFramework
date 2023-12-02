@@ -1,0 +1,7 @@
+{
+    "problem_identifier": "problem_8",
+    "model_identifier": "gpt-4",
+    "prompt_identifier": "prompt",
+    "solution_code": "import numpy as np\nfrom typing import List\n\ndef contour_containment_check(contour1: List[List[int]], contour2: List[List[int]]) -> bool:\n    for point in contour1:\n        # Check if the point from contour1 is inside contour2 using cv2.pointPolygonTest\n        is_inside = cv2.pointPolygonTest(np.array(contour2), tuple(point), False)\n        \n        # If any point is outside contour2, return False\n        if is_inside < 0:\n            return False\n    \n    # If all points are inside contour2, return True\n    return True\n",
+    "feedback": null
+}

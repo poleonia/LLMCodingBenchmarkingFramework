@@ -1,0 +1,7 @@
+{
+    "problem_identifier": "009",
+    "model_identifier": "gpt-4",
+    "prompt_identifier": "optimization for runtime on cpu",
+    "solution_code": "import numpy as np\ndef solve_problem_009_cpu_numpy(A, B):\n    A_np = np.array(A)\n    B_np = np.array(B)\n    row_sums = A_np.sum(axis=1)\n    col_maxs = B_np.max(axis=0)\n    result = row_sums[:, np.newaxis] + col_maxs\n    return result.tolist()",
+    "feedback": null
+}

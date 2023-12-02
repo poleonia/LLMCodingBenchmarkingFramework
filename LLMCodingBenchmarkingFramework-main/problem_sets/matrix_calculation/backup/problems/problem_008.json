@@ -1,0 +1,106 @@
+{
+    "identifier": "008",
+    "description": "Given a 10x10 matrix A, raise it to the power of n and then subtract another 10x10 matrix B from it.",
+    "function_prototype": {
+        "function_name": "computePowerAndSubtract",
+        "parameters": [
+            {
+                "name": "A",
+                "type": "10x10 matrix",
+                "description": "A 10x10 matrix"
+            },
+            {
+                "name": "B",
+                "type": "10x10 matrix",
+                "description": "A 10x10 matrix"
+            },
+            {
+                "name": "n",
+                "type": "integer",
+                "description": "An exponent value used in the operation"
+            }
+        ],
+        "return_values": [
+            {
+                "name": "result",
+                "type": "10x10 matrix",
+                "description": "The resulting 10x10 matrix after the calculation"
+            }
+        ]
+    },
+    "correctness_test_suite": [
+        {
+            "input": {
+                "A": [
+                    [7, 2, 4, 1, 5, 1, 4, 5, 2, 9],
+                    [4, 2, 9, 5, 0, 1, 4, 5, 4, 9],
+                    [4, 5, 0, 7, 7, 2, 2, 8, 3, 6],
+                    [5, 8, 3, 6, 9, 4, 1, 1, 7, 5],
+                    [2, 5, 7, 0, 6, 8, 2, 1, 7, 3],
+                    [9, 5, 4, 7, 6, 6, 6, 7, 2, 8],
+                    [2, 9, 5, 5, 3, 2, 0, 2, 7, 8],
+                    [9, 4, 1, 9, 8, 6, 3, 4, 1, 1],
+                    [4, 1, 5, 1, 3, 5, 2, 8, 2, 3],
+                    [5, 5, 1, 2, 0, 0, 1, 8, 4, 9]
+                ],
+                "B": [
+                    [5, 9, 2, 6, 8, 1, 1, 5, 2, 2],
+                    [8, 2, 5, 9, 5, 9, 5, 1, 3, 3],
+                    [6, 5, 2, 9, 6, 2, 3, 3, 9, 8],
+                    [6, 0, 6, 9, 5, 3, 6, 9, 5, 5],
+                    [4, 1, 5, 9, 0, 1, 3, 6, 8, 8],
+                    [1, 6, 8, 7, 6, 8, 6, 2, 2, 6],
+                    [8, 2, 4, 2, 2, 1, 9, 5, 3, 1],
+                    [3, 3, 7, 7, 5, 0, 2, 3, 0, 1],
+                    [0, 0, 9, 0, 1, 5, 1, 0, 6, 9],
+                    [6, 6, 4, 6, 7, 5, 8, 6, 8, 4]
+                ],
+                "n": 3
+            },
+            "expected_output": [
+                [8663, 7025, 6135, 6643, 7272, 5404, 4133, 8341, 6068, 10045],
+                [9528, 7786, 6886, 7295, 8183, 6099, 4485, 8723, 6834, 10781],
+                [9802, 8202, 7350, 7592, 8680, 6483, 4886, 9508, 7169, 11636],
+                [10863, 9064, 7577, 8648, 9450, 6999, 5254, 10878, 7649, 12697],
+                [9649, 8087, 6479, 7785, 8484, 6178, 4564, 9079, 6685, 10900],
+                [13616, 11451, 10066, 10504, 11785, 8725, 6596, 13156, 10029, 16227],
+                [9509, 7831, 6274, 7595, 8222, 5890, 4395, 9157, 6527, 10753],
+                [10556, 9131, 8211, 8137, 9371, 7102, 5302, 10505, 8097, 12990],
+                [8073, 6864, 5921, 6237, 7290, 5357, 3920, 7121, 5935, 9270],
+                [7657, 6246, 5066, 5905, 6607, 4608, 3525, 7010, 5247, 8667]
+            ]
+        }
+    ],
+    "tags": [
+        "matrix exponentiation",
+        "matrix subtraction",
+        "matrix operation"
+    ],
+    "prompts": [
+		{
+			"prompt_id": "optimization for memory usage",
+			"prompt": "optimize this code for reducing its memory usage",
+			"genericize": false,
+			"sample_inputs_outputs": [
+			],
+            "input_code": " "
+		},
+		{
+			"prompt_id": "optimization for runtime on CPU",
+			"prompt": "optimize this code for reducing its runtime on only CPU",
+			"genericize": false,
+			"sample_inputs_outputs": [
+			],
+            "input_code": " "
+		},
+		{
+			"prompt_id": "optimization for runtime on GPU",
+			"prompt": "optimize this code for reducing its runtime on only GPU",
+			"genericize": false,
+			"sample_inputs_outputs": [
+			],
+            "input_code": " "
+		}
+    ],
+   "optimal_solution": " def solve_problem_008_cpu(A, B, n):\n    # First, define a function for matrix multiplication using nested loops\n    def matrix_multiply(X, Y):\n        result = [[0 for _ in range(len(X))] for _ in range(len(Y[0]))]\n        # iterate through rows of X\n        for i in range(len(X)):\n            # iterate through columns of Y\n            for j in range(len(Y[0])):\n                # iterate through rows of Y\n                for k in range(len(Y)):\n                    result[i][j] += X[i][k] * Y[k][j]\n        return result\n\n    # Now, raise matrix A to the power of n using repeated multiplication\n    A_power_n = A\n    for _ in range(1, n):  # We already have A to the power of 1, so start at 1\n        A_power_n = matrix_multiply(A_power_n, A)\n\n    # Subtract matrix B from A^n\n    result = [[A_power_n[i][j] - B[i][j] for j in range(len(A_power_n[0]))] for i in range(len(A_power_n))]\n\n    return result"
+}

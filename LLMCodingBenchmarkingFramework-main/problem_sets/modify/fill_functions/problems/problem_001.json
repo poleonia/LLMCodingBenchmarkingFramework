@@ -1,0 +1,38 @@
+{
+    "identifier": "problem_1",
+    "description": "Calculate the Euclidean distance between the centroids of two contours.",
+    "prompts": [
+        {
+            "prompt_id": "prompt",
+            "prompt": "Please fix an incomplete function `euclidean_distance_between_centroids` that calculates the Euclidean distance between the centroids of two given contours. Each contour is represented as a list of points, where each point is a list of two integers representing the x and y coordinates.",
+            "genericize": false,
+            "input_code": "import numpy as np\n\ndef euclidean_distance_between_centroids(contour1: List[List[int]], contour2: List[List[int]]) -> float:\n    centroid1 = np.mean(contour1, axis=0)\n    # A line of code is missing here\n    return np.linalg.norm(centroid1 - centroid2)"
+        }
+    ],
+    "function_prototype": {
+        "function_name": "euclidean_distance_between_centroids",
+        "parameters": [
+            {"name": "contour1", "type": "List[List[int]]"},
+            {"name": "contour2", "type": "List[List[int]]"}
+        ],
+        "return_values": [{"type": "float"}]
+    },
+    "correctness_test_suite": [
+        {
+            "input": {
+                "contour1": [[0, 0], [3, 0], [3, 3], [0, 3]],
+                "contour2": [[4, 4], [7, 4], [7, 7], [4, 7]]
+            },
+            "expected_output": [5.656854249492381]
+        },
+        {
+            "input": {
+                "contour1": [[1, 1], [2, 1], [2, 2], [1, 2]],
+                "contour2": [[3, 3], [4, 3], [4, 4], [3, 4]]
+            },
+            "expected_output": [2.8284271247461903]
+        }
+    ],
+    "optimal_solution": "import numpy as np\n\ndef euclidean_distance_between_centroids(contour1: List[List[int]], contour2: List[List[int]]) -> float:\n    centroid1 = np.mean(contour1, axis=0)\n    centroid2 = np.mean(contour2, axis=0)\n    return np.linalg.norm(centroid1 - centroid2)",
+    "tags": ["Geometry", "Euclidean Distance", "Centroid Calculation", "Intermediate"]
+}

@@ -1,0 +1,38 @@
+{
+    "identifier": "problem_4",
+    "description": "Measure the shape similarity between two contours.",
+    "prompts": [
+        {
+            "prompt_id": "prompt",
+            "prompt": "Please fix an incomplete function `shape_similarity` that measures the similarity between the shapes of two given contours. Each contour is represented as a list of points, where each point is a list of two integers representing the x and y coordinates. The function should return a similarity score, with a lower score indicating more similar shapes.",
+            "genericize": false,
+            "input_code": "import numpy as np\nimport cv2\n\ndef shape_similarity(contour1: List[List[int]], contour2: List[List[int]]) -> float:\n    moments1 = cv2.moments(np.array(contour1, dtype=np.float32))\n    # A line of code is missing here\n    huMoments2 = cv2.HuMoments(moments2).flatten()\n    similarity = sum(abs(huMoments1 - huMoments2))\n    return similarity"
+        }
+    ],
+    "function_prototype": {
+        "function_name": "shape_similarity",
+        "parameters": [
+            {"name": "contour1", "type": "List[List[int]]"},
+            {"name": "contour2", "type": "List[List[int]]"}
+        ],
+        "return_values": [{"type": "float"}]
+    },
+    "correctness_test_suite": [
+        {
+            "input": {
+                "contour1": [[0, 0], [2, 0], [2, 2], [0, 2]],
+                "contour2": [[1, 1], [3, 1], [3, 3], [1, 3]]
+            },
+            "expected_output": [1.1102230246251585e-16]
+        },
+        {
+            "input": {
+                "contour1": [[1, 1], [3, 1], [3, 3], [1, 3]],
+                "contour2": [[4, 4], [6, 4], [6, 6], [4, 6]]
+            },
+            "expected_output": [4.440892098501105e-16]
+        }
+    ],
+    "optimal_solution": "import numpy as np\nimport cv2\n\ndef shape_similarity(contour1: List[List[int]], contour2: List[List[int]]) -> float:\n    moments1 = cv2.moments(np.array(contour1, dtype=np.float32))\n    huMoments1 = cv2.HuMoments(moments1).flatten()\n    moments2 = cv2.moments(np.array(contour2, dtype=np.float32))\n    huMoments2 = cv2.HuMoments(moments2).flatten()\n    similarity = sum(abs(huMoments1 - huMoments2))\n    return similarity",
+    "tags": ["Geometry", "Shape Similarity", "Hu Moments", "Intermediate"]
+}

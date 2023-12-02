@@ -1,0 +1,7 @@
+{
+    "problem_identifier": "010",
+    "model_identifier": "gpt-4",
+    "prompt_identifier": "optimization for runtime on cpu",
+    "solution_code": "import numpy as np\ndef solve_problem_010_cpu_numpy(matrix):\n    matrix_np = np.array(matrix)\n    trace_sum = np.trace(matrix_np)\n    # Convert numpy.int64 to Python int before serialization\n    trace_sum = int(trace_sum)\n    return trace_sum\n",
+    "feedback": null
+}

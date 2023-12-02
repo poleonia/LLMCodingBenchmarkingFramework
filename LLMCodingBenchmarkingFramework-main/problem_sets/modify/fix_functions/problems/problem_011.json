@@ -1,0 +1,24 @@
+{
+    "identifier": "problem_11",
+    "description": "Develop a function that removes duplicates from a list.",
+    "prompts": [
+        {
+            "prompt_id": "remove_duplicates",
+            "prompt": "The function `remove_duplicates` should return a list with duplicates removed. There is an error in the current implementation. Fix the code to remove duplicates correctly.",
+            "genericize": false,
+            "input_code": "def remove_duplicates(lst: list) -> list:\n    return list(set(lst))"
+        }
+    ],
+    "function_prototype": {
+        "function_name": "remove_duplicates",
+        "parameters": [{"name": "lst", "type": "list"}],
+        "return_values": [{"type": "list"}]
+    },
+    "correctness_test_suite": [
+        {"input": {"lst": [4, 5, 5, 4, 7]}, "expected_output": [[4, 5, 7]]},
+        {"input": {"lst": ["x", "y", "y", "x"]}, "expected_output": [["x", "y"]]}
+    ],
+    "optimal_solution": "def remove_duplicates(lst: list) -> list:\n    seen = set()\n    return [x for x in lst if not (x in seen or seen.add(x))]",
+    "additional_instructions": "Ensure the original order is preserved.",
+    "tags": ["List", "Duplicates", "Easy", "Syntax Error"]
+}

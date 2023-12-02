@@ -1,0 +1,24 @@
+{
+    "identifier": "problem_14",
+    "description": "Develop a function that returns the sum of all even numbers in a given list.",
+    "prompts": [
+        {
+            "prompt_id": "sum_even_numbers",
+            "prompt": "The function `sum_even_numbers` should calculate the sum of all even numbers in a list. There's a logical error in the code that needs to be addressed.",
+            "genericize": false,
+            "input_code": "def sum_even_numbers(numbers: list) -> int:\n    return sum(n for n in numbers if n % 3 == 0)"
+        }
+    ],
+    "function_prototype": {
+        "function_name": "sum_even_numbers",
+        "parameters": [{"name": "numbers", "type": "list"}],
+        "return_values": [{"type": "int"}]
+    },
+    "correctness_test_suite": [
+        {"input": {"numbers": [2, 5, 8, 9]}, "expected_output": [10]},
+        {"input": {"numbers": [0, 1, 4, 7]}, "expected_output": [4]}
+    ],
+    "optimal_solution": "def sum_even_numbers(numbers: list) -> int:\n    return sum(n for n in numbers if n % 2 == 0)",
+    "additional_instructions": "Consider an edge case where the list might be empty.",
+    "tags": ["List", "Sum", "Even", "Easy", "Logic Error"]
+}

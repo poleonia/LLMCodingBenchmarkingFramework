@@ -1,0 +1,24 @@
+{
+    "identifier": "problem_9",
+    "description": "Write a function that concatenates two lists.",
+    "prompts": [
+        {
+            "prompt_id": "concatenate_lists",
+            "prompt": "The function `concatenate_lists` is intended to concatenate two lists. However, there's a mistake in the code. Fix the code to concatenate the lists correctly.",
+            "genericize": false,
+            "input_code": "def concatenate_lists(list1: list, list2: list) -> list:\n    return list1 + list2"
+        }
+    ],
+    "function_prototype": {
+        "function_name": "concatenate_lists",
+        "parameters": [{"name": "list1", "type": "list"}, {"name": "list2", "type": "list"}],
+        "return_values": [{"type": "list"}]
+    },
+    "correctness_test_suite": [
+        {"input": {"list1": [7, 8], "list2": [9, 10]}, "expected_output": [[7, 8, 9, 10]]},
+        {"input": {"list1": ["x", "y", "z"], "list2": ["1", "2", "3"]}, "expected_output": [["x", "y", "z", "1", "2", "3"]]}
+    ],
+    "optimal_solution": "def concatenate_lists(list1: list, list2: list) -> list:\n    return list1.extend(list2)",
+    "additional_instructions": "Consider an edge case where one of the lists is empty.",
+    "tags": ["List", "Concatenation", "Easy", "Syntax Error"]
+}

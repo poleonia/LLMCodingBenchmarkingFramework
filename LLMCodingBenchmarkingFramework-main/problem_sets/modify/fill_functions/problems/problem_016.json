@@ -1,0 +1,38 @@
+{
+    "identifier": "problem_16",
+    "description": "Count the number of intersection points between two contours.",
+    "prompts": [
+        {
+            "prompt_id": "prompt",
+            "prompt": "Please fix an incomplete function `intersection_points_count` that counts the number of intersection points between two given contours. Each contour is represented as a list of points, where each point is a list of two integers representing the x and y coordinates. The function should return the count of intersection points between the two contours.",
+            "genericize": false,
+            "input_code": "import numpy as np\n\n def intersection_points_count(contour1: List[List[int]], contour2: List[List[int]]) -> int:\n    # A line of code is missing here\n    return count"
+        }
+    ],
+    "function_prototype": {
+        "function_name": "intersection_points_count",
+        "parameters": [
+            {"name": "contour1", "type": "List[List[int]]"},
+            {"name": "contour2", "type": "List[List[int]]"}
+        ],
+        "return_values": [{"type": "int"}]
+    },
+    "correctness_test_suite": [
+        {
+            "input": {
+                "contour1": [[0, 0], [2, 0], [1, 1], [0, 2], [2, 2]],
+                "contour2": [[1, 1], [3, 1], [2, 2], [1, 3], [3, 3]]
+            },
+            "expected_output": [2]
+        },
+        {
+            "input": {
+                "contour1": [[1, 1], [3, 1], [2, 2], [1, 3], [3, 3]],
+                "contour2": [[2, 2], [4, 2], [3, 3], [2, 4], [4, 4]]
+            },
+            "expected_output": [1]
+        }
+    ],
+    "optimal_solution": "import numpy as np\n\ndef intersection_points_count(contour1: List[List[int]], contour2: List[List[int]]) -> int:\n    count = 0\n    # Functionality to calculate intersection points here\n    return count",
+    "tags": ["Geometry", "Intersection Points", "Contour", "Intermediate"]
+}

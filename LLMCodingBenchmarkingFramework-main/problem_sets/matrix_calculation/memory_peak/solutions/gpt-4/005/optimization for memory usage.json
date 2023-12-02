@@ -1,0 +1,7 @@
+{
+    "problem_identifier": "005",
+    "model_identifier": "gpt-4",
+    "prompt_identifier": "optimization for memory usage",
+    "solution_code": "def solve_problem_005_cpu_optimized(A, B):\n    # Use a list comprehension to create rows of the result matrix\n    # Transpose of B is done on the fly within the list comprehension\n    return [[((2 * A[i][j] - B[j][i]) ** 2) for j in range(len(A[0]))] for i in range(len(A))]\n",
+    "feedback": null
+}

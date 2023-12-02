@@ -1,0 +1,24 @@
+{
+    "identifier": "problem_5",
+    "description": "Write a function to find the greatest common divisor of two numbers.",
+    "prompts": [
+        {
+            "prompt_id": "find_gcd",
+            "prompt": "The `find_gcd` function aims to return the greatest common divisor of two integers. The current implementation is flawed. Correct the function to compute the GCD accurately.",
+            "genericize": false,
+            "input_code": "def find_gcd(a: int, b: int) -> int:\n    while(b):\n        a, b = b, a % b\n    return a"
+        }
+    ],
+    "function_prototype": {
+        "function_name": "find_gcd",
+        "parameters": [{"name": "a", "type": "int"}, {"name": "b", "type": "int"}],
+        "return_values": [{"type": "int"}]
+    },
+    "correctness_test_suite": [
+        {"input": {"a": 35, "b": 10}, "expected_output": [5]},
+        {"input": {"a": 17, "b": 13}, "expected_output": [1]}
+    ],
+    "optimal_solution": "def find_gcd(a: int, b: int) -> int:\n    while(b):\n        a, b = b, a % b\n    return a",
+    "additional_instructions": "The function should handle cases where either or both input numbers are zero.",
+    "tags": ["Math", "GCD", "Algorithm", "Logic Error"]
+}

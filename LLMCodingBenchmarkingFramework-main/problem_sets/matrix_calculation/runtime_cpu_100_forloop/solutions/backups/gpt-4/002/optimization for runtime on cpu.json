@@ -1,0 +1,7 @@
+{
+    "problem_identifier": "002",
+    "model_identifier": "gpt-4",
+    "prompt_identifier": "optimization for runtime on cpu",
+    "solution_code": "import numpy as np\ndef solve_problem_002_cpu_numpy(A, B):\n    A_np = np.array(A)\n    B_np = np.array(B)\n    return (A_np.T - B_np.T).tolist()",
+    "feedback": null
+}

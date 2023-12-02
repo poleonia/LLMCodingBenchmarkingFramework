@@ -1,0 +1,38 @@
+{
+    "identifier": "problem_19",
+    "description": "Compare the maximum curvature found in each contour.",
+    "prompts": [
+        {
+            "prompt_id": "prompt",
+            "prompt": "Please fix an incomplete function `max_curvature_comparison` that calculates and compares the maximum curvature found in two given contours. The curvature at a point is defined based on the change in the angle of the tangent at that point. Each contour is represented as a list of points, where each point is a list of two integers representing the x and y coordinates. The function should return the absolute difference in the maximum curvature found in each contour.",
+            "genericize": false,
+            "input_code": "import numpy as np\n\ndef max_curvature_comparison(contour1: List[List[int]], contour2: List[List[int]]) -> float:\n    def max_curvature(contour):\n        curvatures = []\n        # Calculate curvature for each point in contour\n        # A line of code is missing here\n        return max(curvatures)\n    max_curvature1 = max_curvature(contour1)\n    max_curvature2 = max_curvature(contour2)\n    return abs(max_curvature1 - max_curvature2)"
+        }
+    ],
+    "function_prototype": {
+        "function_name": "max_curvature_comparison",
+        "parameters": [
+            {"name": "contour1", "type": "List[List[int]]"},
+            {"name": "contour2", "type": "List[List[int]]"}
+        ],
+        "return_values": [{"type": "float"}]
+    },
+    "correctness_test_suite": [
+        {
+            "input": {
+                "contour1": [[0, 0], [1, 0], [1, 1], [0, 1]],
+                "contour2": [[1, 1], [2, 1], [2, 2], [1, 2]]
+            },
+            "expected_output": [0.0]
+        },
+        {
+            "input": {
+                "contour1": [[1, 1], [2, 1], [2, 2], [1, 2]],
+                "contour2": [[2, 2], [3, 2], [3, 3], [2, 3]]
+            },
+            "expected_output": [0.0]
+        }
+    ],
+    "optimal_solution": "import numpy as np\n\ndef max_curvature_comparison(contour1: List[List[int]], contour2: List[List[int]]) -> float:\n    def max_curvature(contour):\n        curvatures = []\n        for i in range(len(contour)):\n            # Calculate curvature at point i\n            # Assume curvature calculation is implemented here\n            curvatures.append(curvature)\n        return max(curvatures)\n    max_curvature1 = max_curvature(contour1)\n    max_curvature2 = max_curvature(contour2)\n    return abs(max_curvature1 - max_curvature2)",
+    "tags": ["Geometry", "Curvature Analysis", "Contour", "Intermediate"]
+}

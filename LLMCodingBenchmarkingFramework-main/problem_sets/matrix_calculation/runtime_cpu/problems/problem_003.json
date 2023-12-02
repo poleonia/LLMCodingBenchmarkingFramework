@@ -1,0 +1,82 @@
+{
+    "identifier": "003",
+    "description": "Given two 10x10 matrices A and B, calculate the element-wise square of their product A * B.",
+    "function_prototype": {
+        "function_name": "computeElementWiseSquareOfProduct",
+        "parameters": [
+            {
+                "name": "A",
+                "type": "10x10 matrix",
+                "description": "A 10x10 matrix"
+            },
+            {
+                "name": "B",
+                "type": "10x10 matrix",
+                "description": "A 10x10 matrix"
+            }
+        ],
+        "return_values": [
+            {
+                "name": "result",
+                "type": "10x10 matrix",
+                "description": "The resulting 10x10 matrix after the calculation"
+            }
+        ]
+    },
+    "correctness_test_suite": [
+        {
+            "input": {
+                "A": [
+                    [0, 5, 6, 8, 5, 5, 3, 6, 7, 7],
+                    [8, 5, 3, 6, 1, 0, 3, 8, 8, 4],
+                    [2, 6, 2, 2, 5, 6, 9, 4, 2, 4],
+                    [7, 1, 7, 7, 6, 5, 5, 6, 6, 7],
+                    [3, 9, 9, 1, 0, 8, 4, 1, 9, 5],
+                    [5, 3, 9, 6, 4, 1, 9, 0, 9, 8],
+                    [5, 1, 9, 0, 5, 2, 3, 3, 0, 4],
+                    [8, 6, 3, 9, 7, 9, 4, 2, 5, 4],
+                    [1, 9, 9, 1, 8, 7, 7, 4, 1, 8],
+                    [4, 6, 5, 3, 2, 0, 4, 1, 1, 6]
+                ],
+                "B": [
+                    [3, 9, 3, 1, 8, 2, 1, 1, 4, 1],
+                    [9, 9, 1, 8, 3, 2, 5, 9, 4, 9],
+                    [7, 5, 8, 2, 2, 8, 3, 7, 3, 5],
+                    [0, 6, 7, 2, 5, 6, 2, 6, 7, 1],
+                    [2, 9, 5, 3, 4, 8, 0, 9, 9, 2],
+                    [1, 0, 6, 0, 6, 0, 5, 8, 6, 6],
+                    [9, 9, 9, 4, 7, 5, 4, 0, 5, 6],
+                    [3, 5, 4, 2, 6, 8, 6, 7, 7, 8],
+                    [7, 1, 8, 0, 4, 8, 6, 9, 5, 8],
+                    [0, 9, 1, 5, 2, 5, 1, 2, 1, 9]
+                ]
+            },
+            "expected_output": [
+                [
+                    [38416, 87025, 77284, 20164, 46656, 90000, 32761, 114921, 71824, 94864],
+                    [39601, 82944, 51529, 13689, 51984, 66049, 27556, 65025, 51529, 66564],
+                    [38809, 77284, 48400, 18769, 42849, 38809, 21904, 52441, 48400, 63504],
+                    [40401, 120409, 96721, 16384, 73441, 101124, 29241, 96721, 84100, 83521],
+                    [69169, 64516, 68644, 19044, 40804, 51529, 39204, 99225, 42849, 106929],
+                    [66564, 123201, 101761, 21609, 54756, 97969, 26244, 73984, 58081, 87025],
+                    [18225, 49284, 28224, 7056, 19600, 33489, 6561, 27889, 21904, 25281],
+                    [39601, 119025, 86436, 19881, 80089, 66564, 29584, 114921, 94864, 72900],
+                    [63504, 136161, 71824, 37249, 50625, 76729, 30976, 110224, 69696, 115600],
+                    [22801, 61009, 20449, 14884, 17689, 25600, 7921, 24649, 17424, 33856]
+                ]
+            ]
+        }
+    ],
+
+
+    "prompts": [
+		{
+			"prompt_id": "optimization for runtime on cpu",
+			"prompt": "optimize this code for reducing its runtime on cpu",
+			"genericize": false,
+            "input_code": "def solve_problem_003_cpu(A, B):\n    result = []\n    for i in range(len(A)):\n        row = []\n        for j in range(len(B[0])):\n            sum_product = sum(A[i][k] * B[k][j] for k in range(len(B)))\n            row.append(sum_product ** 2)\n        result.append(row)\n    return result"
+		}
+    ],
+    "optimal_solution": "def solve_problem_003_cpu(A, B):\n    result = []\n    for i in range(len(A)):\n        row = []\n        for j in range(len(B[0])):\n            sum_product = sum(A[i][k] * B[k][j] for k in range(len(B)))\n            row.append(sum_product ** 2)\n        result.append(row)\n    return result"
+
+}

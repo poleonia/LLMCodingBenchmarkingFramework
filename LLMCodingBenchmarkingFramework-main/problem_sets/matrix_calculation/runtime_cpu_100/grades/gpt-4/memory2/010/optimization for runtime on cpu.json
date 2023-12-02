@@ -1,0 +1,8 @@
+{
+    "problem_identifier": "010",
+    "prompt_identifier": "optimization for runtime on cpu",
+    "model_identifier": "gpt-4",
+    "score": 0.0067178502879078695,
+    "sub_criteria_scores": null,
+    "issues": []
+}
