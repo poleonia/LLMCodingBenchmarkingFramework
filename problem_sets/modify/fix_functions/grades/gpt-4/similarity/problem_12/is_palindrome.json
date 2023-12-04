@@ -1,0 +1,8 @@
+{
+    "problem_identifier": "problem_12",
+    "prompt_identifier": "is_palindrome",
+    "model_identifier": "gpt-4",
+    "score": 0.4285714285714286,
+    "sub_criteria_scores": null,
+    "issues": []
+}

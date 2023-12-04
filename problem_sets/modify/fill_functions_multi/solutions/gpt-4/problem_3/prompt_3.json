@@ -1,0 +1,7 @@
+{
+    "problem_identifier": "problem_3",
+    "model_identifier": "gpt-4",
+    "prompt_identifier": "prompt_3",
+    "solution_code": "import numpy as np\nfrom typing import List\n\ndef furthest_points_distance(contour1: List[List[int]], contour2: List[List[int]]) -> float:\n    max_distance = 0\n\n    for point1 in contour1:\n        for point2 in contour2:\n            distance = np.sqrt((point1[0] - point2[0]) ** 2 + (point1[1] - point2[1]) ** 2)\n            max_distance = max(max_distance, distance)\n\n    return max_distance\n",
+    "feedback": null
+}

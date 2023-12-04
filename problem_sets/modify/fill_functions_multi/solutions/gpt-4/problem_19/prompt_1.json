@@ -1,0 +1,7 @@
+{
+    "problem_identifier": "problem_19",
+    "model_identifier": "gpt-4",
+    "prompt_identifier": "prompt_1",
+    "solution_code": "import numpy as np\nfrom typing import List\n\ndef max_curvature_comparison(contour1: List[List[int]], contour2: List[List[int]]) -> float:\n    def curvature(point1, point2, point3):\n        # Calculate the vectors from point1 to point2 and from point2 to point3\n        vector1 = np.array(point2) - np.array(point1)\n        vector2 = np.array(point3) - np.array(point2)\n        \n        # Calculate the magnitudes of the vectors\n        magnitude1 = np.linalg.norm(vector1)\n        magnitude2 = np.linalg.norm(vector2)\n        \n        # Calculate the dot product between the vectors\n        dot_product = np.dot(vector1, vector2)\n        \n        # Calculate the angle between the vectors in radians\n        angle = np.arccos(dot_product / (magnitude1 * magnitude2))\n        \n        # Calculate the curvature (inverse of the angle)\n        curvature = 1.0 / angle\n        \n        return curvature\n\n    def max_curvature(contour):\n        max_curv = 0\n        for i in range(1, len(contour) - 1):\n            curv = curvature(contour[i - 1], contour[i], contour[i + 1])\n            max_curv = max(max_curv, curv)\n        return max_curv\n\n    max_curvature1 = max_curvature(contour1)\n    max_curvature2 = max_curvature(contour2)\n    return abs(max_curvature1 - max_curvature2)\n",
+    "feedback": null
+}

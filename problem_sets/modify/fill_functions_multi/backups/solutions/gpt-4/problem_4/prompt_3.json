@@ -1,0 +1,7 @@
+{
+    "problem_identifier": "problem_4",
+    "model_identifier": "gpt-4",
+    "prompt_identifier": "prompt_3",
+    "solution_code": "import cv2\nimport numpy as np\nfrom typing import List\n\ndef shape_similarity(contour1: List[List[int]], contour2: List[List[int]]) -> float:\n    # Convert the input contours to NumPy arrays\n    contour1 = np.array(contour1)\n    contour2 = np.array(contour2)\n\n    # Calculate Hu Moments for contour1\n    moments1 = cv2.moments(contour1)\n    huMoments1 = cv2.HuMoments(moments1).flatten()\n\n    # Calculate Hu Moments for contour2\n    moments2 = cv2.moments(contour2)\n    huMoments2 = cv2.HuMoments(moments2).flatten()\n\n    # Calculate the Euclidean distance between the two sets of Hu Moments\n    similarity = np.sqrt(np.sum((huMoments1 - huMoments2) ** 2))\n\n    return similarity\n",
+    "feedback": null
+}

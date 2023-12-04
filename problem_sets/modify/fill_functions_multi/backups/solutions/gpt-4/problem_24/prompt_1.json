@@ -1,0 +1,7 @@
+{
+    "problem_identifier": "problem_24",
+    "model_identifier": "gpt-4",
+    "prompt_identifier": "prompt_1",
+    "solution_code": "from typing import List\n\ndef longest_unique_substring(arr1: List[str], arr2: List[str]) -> int:\n    def longest_unique_substr(s):\n        seen = {}\n        start = 0\n        max_length = 0\n        for i, c in enumerate(s):\n            if c in seen and start <= seen[c]:\n                start = seen[c] + 1\n            else:\n                max_length = max(max_length, i - start + 1)\n            seen[c] = i\n        return max_length\n    \n    longest = 0\n    for string in arr1 + arr2:\n        longest = max(longest, longest_unique_substr(string))\n    return longest\n",
+    "feedback": null
+}

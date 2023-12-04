@@ -1,0 +1,11 @@
+{
+    "problem_identifier": "problem_20",
+    "prompt_identifier": "prompt_2",
+    "model_identifier": "gpt-4",
+    "score": 0.0,
+    "sub_criteria_scores": null,
+    "issues": [
+        "Error encountered during execution for test case Input: contour1 = [[0, 0], [1, 0], [1, 1], [0, 1]], contour2 = [[1, 1], [2, 1], [2, 2], [1, 2]]; Expected Output: 0.0: not enough values to unpack (expected 6, got 4)\nTraceback (most recent call last):\n  File \"/data/Lining/Lining/HW/LLMCodingBenchmarkingFramework-main/execution.py\", line 76, in executor_script\n    result = function(*parameters)\n  File \"<string>\", line 20, in principal_axis_alignment_comparison\n  File \"<string>\", line 13, in alignment_distance\nValueError: not enough values to unpack (expected 6, got 4)\n",
+        "Error encountered during execution for test case Input: contour1 = [[1, 1], [2, 1], [2, 2], [1, 2]], contour2 = [[2, 2], [3, 2], [3, 3], [2, 3]]; Expected Output: 0.0: not enough values to unpack (expected 6, got 4)\nTraceback (most recent call last):\n  File \"/data/Lining/Lining/HW/LLMCodingBenchmarkingFramework-main/execution.py\", line 76, in executor_script\n    result = function(*parameters)\n  File \"<string>\", line 20, in principal_axis_alignment_comparison\n  File \"<string>\", line 13, in alignment_distance\nValueError: not enough values to unpack (expected 6, got 4)\n"
+    ]
+}

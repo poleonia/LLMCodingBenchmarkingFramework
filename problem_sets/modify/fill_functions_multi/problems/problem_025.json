@@ -1,0 +1,69 @@
+{
+    "identifier": "problem_25",
+    "description": "Calculate the number of ways to split each string from the first array into substrings present in the second array.",
+    "prompts": [
+        {
+            "prompt_id": "prompt_1",
+            "prompt": "Please fix an incomplete function `count_substring_partitioning` that calculates the number of ways to split each string from the first array into substrings present in the second array. A line of code is missing in the function implementation.",
+            "genericize": false,
+            "input_code": "def count_substring_partitioning(arr1: List[str], arr2: List[str]) -> int:\n    def count_ways(s, part, memo):\n        if s in memo:\n            return memo[s]\n        if not s:\n            return 1\n        cnt = 0\n        # A line of code is missing here\n        memo[s] = cnt\n        return cnt\n    count = 0\n    for string in arr1:\n        count += count_ways(string, arr2, {})\n    return count"
+        },
+        {
+            "prompt_id": "prompt_2",
+            "prompt": "Please fix an incomplete function `count_substring_partitioning` that calculates the number of ways to split each string from the first array into substrings present in the second array. Another line of code is missing in this version of the function.",
+            "genericize": false,
+            "input_code": "def count_substring_partitioning(arr1: List[str], arr2: List[str]) -> int:\n    def count_ways(s, part, memo):\n        if not s:\n            return 1\n        cnt = 0\n        for p in part:\n            if s.startswith(p):\n                cnt += count_ways(s[len(p):], part, memo)\n        # A line of code is missing here\n        return cnt\n    count = 0\n    for string in arr1:\n        count += count_ways(string, arr2, {})\n    return count"
+        },
+        {
+            "prompt_id": "prompt_3",
+            "prompt": "Please fix an incomplete function `count_substring_partitioning` that calculates the number of ways to split each string from the first array into substrings present in the second array. This version of the function is missing an additional line of code.",
+            "genericize": false,
+            "input_code": "def count_substring_partitioning(arr1: List[str], arr2: List[str]) -> int:\n    def count_ways(s, part, memo):\n        cnt = 0\n        for p in part:\n            if s.startswith(p):\n                # A line of code is missing here\n        return cnt\n    count = 0\n    for string in arr1:\n        count += count_ways(string, arr2, {})\n    return count"
+        }
+    ],
+    "function_prototype": {
+        "function_name": "count_substring_partitioning",
+        "parameters": [
+            {
+                "name": "arr1",
+                "type": "List[str]"
+            },
+            {
+                "name": "arr2",
+                "type": "List[str]"
+            }
+        ],
+        "return_values": [
+            {
+                "type": "int"
+            }
+        ]
+    },
+    "correctness_test_suite": [
+        {
+            "input": {
+                "arr1": ["applepie", "orange"],
+                "arr2": ["app", "le", "pie", "or", "ange"]
+            },
+            "expected_output": [
+                2
+            ]
+        },
+        {
+            "input": {
+                "arr1": ["abcde", "fgh"],
+                "arr2": ["ab", "cd", "e", "fg"]
+            },
+            "expected_output": [
+                1
+            ]
+        }
+    ],
+    "optimal_solution": "def count_substring_partitioning(arr1: List[str], arr2: List[str]) -> int:\n    def count_ways(s, part, memo):\n        if s in memo:\n            return memo[s]\n        if not s:\n            return 1\n        cnt = 0\n        for p in part:\n            if s.startswith(p):\n                cnt += count_ways(s[len(p):], part, memo)\n        memo[s] = cnt\n        return cnt\n    count = 0\n    for string in arr1:\n        count += count_ways(string, arr2, {})\n    return count",
+    "tags": [
+        "String",
+        "Substring",
+        "Dynamic Programming",
+        "Intermediate"
+    ]
+}

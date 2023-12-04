@@ -1,0 +1,24 @@
+{
+    "identifier": "problem_16",
+    "description": "Create a function that checks if two strings are anagrams of each other.",
+    "prompts": [
+        {
+            "prompt_id": "is_anagram",
+            "prompt": "The function `is_anagram` should check if two strings are anagrams, meaning they contain the same characters in a different order. The code provided has a logical mistake.",
+            "genericize": false,
+            "input_code": "def is_anagram(str1: str, str2: str) -> bool:\n    return sorted(str1) == str1 and sorted(str2) == str2"
+        }
+    ],
+    "function_prototype": {
+        "function_name": "is_anagram",
+        "parameters": [{"name": "str1", "type": "str"}, {"name": "str2", "type": "str"}],
+        "return_values": [{"type": "bool"}]
+    },
+    "correctness_test_suite": [
+        {"input": {"str1": "triangle", "str2": "integral"}, "expected_output": [true]},
+        {"input": {"str1": "one", "str2": "two"}, "expected_output": [false]}
+    ],
+    "optimal_solution": "def is_anagram(str1: str, str2: str) -> bool:\n    return sorted(str1) == sorted(str2)",
+    "additional_instructions": "Consider the case sensitivity and spaces within the strings.",
+    "tags": ["String", "Anagram", "Easy", "Logic Error"]
+}

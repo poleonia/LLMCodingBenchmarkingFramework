@@ -1,0 +1,7 @@
+{
+    "problem_identifier": "problem_20",
+    "model_identifier": "gpt-4",
+    "prompt_identifier": "prompt_3",
+    "solution_code": "from typing import List\nimport numpy as np\nfrom sklearn.decomposition import PCA\n\ndef principal_axis_alignment_comparison(contour1: List[List[int]], contour2: List[List[int]]) -> float:\n    def alignment_distance(contour):\n        # Convert contour points to a NumPy array for PCA\n        contour_np = np.array(contour)\n        \n        # Perform PCA to find the principal components (axes)\n        pca = PCA(n_components=2)\n        pca.fit(contour_np)\n        \n        # Extract the first principal axis as the principal axis of the contour\n        principal_axis = pca.components_[0]\n        \n        # Calculate the average distance of points from the principal axis\n        avg_distance = np.abs(np.dot(contour_np - pca.mean_, principal_axis)).mean()\n        return avg_distance\n\n    alignment1 = alignment_distance(contour1)\n    alignment2 = alignment_distance(contour2)\n    \n    return abs(alignment1 - alignment2)\n",
+    "feedback": null
+}

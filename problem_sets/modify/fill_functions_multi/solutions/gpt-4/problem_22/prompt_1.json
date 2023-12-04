@@ -1,0 +1,7 @@
+{
+    "problem_identifier": "problem_22",
+    "model_identifier": "gpt-4",
+    "prompt_identifier": "prompt_1",
+    "solution_code": "from typing import List\n\ndef dynamic_substring_exclusion(arr1: List[str], arr2: List[str]) -> int:\n    def is_substring(s, sub):\n        return s.find(sub) != -1\n    \n    def dp(arr, index, current, memo):\n        if index == len(arr):\n            return 0 if any(is_substring(current, s) for s in arr2) else len(current)\n        \n        if (index, current) in memo:\n            return memo[(index, current)]\n        \n        # Calculate the maximum length of the substring including the current element\n        include = 0\n        for i in range(index, len(arr)):\n            new_current = current + arr[i]\n            if not any(is_substring(new_current, s) for s in arr2):\n                include = max(include, dp(arr, i + 1, new_current, memo))\n        \n        exclude = dp(arr, index + 1, current, memo)\n        memo[(index, current)] = max(include, exclude)\n        return memo[(index, current)]\n    \n    return dp(arr1, 0, \"\", {})\n\n# Example usage:\narr1 = [\"abc\", \"def\", \"xy\"]\narr2 = [\"c\", \"y\"]\nresult = dynamic_substring_exclusion(arr1, arr2)\nprint(result)  # Output should be 6 (substring \"abcdefxy\" excluding \"c\" and \"y\")\n",
+    "feedback": null
+}

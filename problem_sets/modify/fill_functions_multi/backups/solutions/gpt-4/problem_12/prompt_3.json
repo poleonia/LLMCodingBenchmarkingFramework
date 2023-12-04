@@ -1,0 +1,7 @@
+{
+    "problem_identifier": "problem_12",
+    "model_identifier": "gpt-4",
+    "prompt_identifier": "prompt_3",
+    "solution_code": "from typing import List\nimport cv2\nimport numpy as np\n\ndef bounding_box_area_comparison(contour1: List[List[int]], contour2: List[List[int]]) -> float:\n    # Calculate the bounding boxes for both contours\n    bbox1 = cv2.boundingRect(np.array(contour1))\n    bbox2 = cv2.boundingRect(np.array(contour2))\n    \n    # Calculate the areas of the bounding boxes\n    area1 = bbox1[2] * bbox1[3]\n    area2 = bbox2[2] * bbox2[3]\n    \n    # Calculate the absolute difference in areas\n    abs_diff = abs(area1 - area2)\n    \n    return abs_diff\n",
+    "feedback": null
+}

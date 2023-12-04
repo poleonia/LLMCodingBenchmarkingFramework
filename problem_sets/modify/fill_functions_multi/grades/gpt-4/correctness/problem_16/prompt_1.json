@@ -1,0 +1,11 @@
+{
+    "problem_identifier": "problem_16",
+    "prompt_identifier": "prompt_1",
+    "model_identifier": "gpt-4",
+    "score": 0.0,
+    "sub_criteria_scores": null,
+    "issues": [
+        "Test failed:\n\tInput: contour1 = [[0, 0], [2, 0], [1, 1], [0, 2], [2, 2]], contour2 = [[1, 1], [3, 1], [2, 2], [1, 3], [3, 3]]; Expected Output: 2\n\tFunction prototype: intersection_points_count(contour1: List[List[int]], contour2: List[List[int]]) -> int\n\tExpected result: 2 <class 'int'>\n\tActual result: 12 <class 'int'>",
+        "Test failed:\n\tInput: contour1 = [[1, 1], [3, 1], [2, 2], [1, 3], [3, 3]], contour2 = [[2, 2], [4, 2], [3, 3], [2, 4], [4, 4]]; Expected Output: 2\n\tFunction prototype: intersection_points_count(contour1: List[List[int]], contour2: List[List[int]]) -> int\n\tExpected result: 2 <class 'int'>\n\tActual result: 12 <class 'int'>"
+    ]
+}

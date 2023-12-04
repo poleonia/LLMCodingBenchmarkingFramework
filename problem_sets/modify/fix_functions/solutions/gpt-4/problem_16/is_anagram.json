@@ -1,0 +1,7 @@
+{
+    "problem_identifier": "problem_16",
+    "model_identifier": "gpt-4",
+    "prompt_identifier": "is_anagram",
+    "solution_code": "def is_anagram(str1: str, str2: str) -> bool:\n    return sorted(str1) == sorted(str2)\n",
+    "feedback": null
+}

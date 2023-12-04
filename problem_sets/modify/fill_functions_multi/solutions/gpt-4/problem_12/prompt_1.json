@@ -1,0 +1,7 @@
+{
+    "problem_identifier": "problem_12",
+    "model_identifier": "gpt-4",
+    "prompt_identifier": "prompt_1",
+    "solution_code": "import numpy as np\nimport cv2\nfrom typing import List\n\ndef bounding_box_area_comparison(contour1: List[List[int]], contour2: List[List[int]]) -> float:\n    bbox1 = cv2.boundingRect(np.array(contour1))\n    area1 = bbox1[2] * bbox1[3]\n\n    bbox2 = cv2.boundingRect(np.array(contour2))\n    area2 = bbox2[2] * bbox2[3]\n\n    return abs(area1 - area2)\n",
+    "feedback": null
+}

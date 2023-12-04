@@ -1,0 +1,24 @@
+{
+    "identifier": "problem_8",
+    "description": "Create a function that calculates the power of a number.",
+    "prompts": [
+        {
+            "prompt_id": "calculate_power",
+            "prompt": "The function `calculate_power` should return the result of raising a number to a given power. The implementation provided contains errors. Debug and correct it to return the right value.",
+            "genericize": false,
+            "input_code": "def calculate_power(base: int, exponent: int) -> int:\n    power = 1\n    for i in range(exponent)\n        power *= base\n    return power"
+        }
+    ],
+    "function_prototype": {
+        "function_name": "calculate_power",
+        "parameters": [{"name": "base", "type": "int"}, {"name": "exponent", "type": "int"}],
+        "return_values": [{"type": "int"}]
+    },
+    "correctness_test_suite": [
+        {"input": {"base": 3, "exponent": 4}, "expected_output": [81]},
+        {"input": {"base": 7, "exponent": 2}, "expected_output": [49]}
+    ],
+    "optimal_solution": "def calculate_power(base: int, exponent: int) -> int:\n    return base ** exponent",
+    "additional_instructions": "Ensure that the function correctly handles a zero exponent.",
+    "tags": ["Math", "Power", "Easy", "Syntax Error"]
+}

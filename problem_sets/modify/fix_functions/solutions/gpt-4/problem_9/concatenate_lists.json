@@ -1,0 +1,7 @@
+{
+    "problem_identifier": "problem_9",
+    "model_identifier": "gpt-4",
+    "prompt_identifier": "concatenate_lists",
+    "solution_code": "def concatenate_lists(list1: list, list2: list) -> list:\n    return list1 + list2\n",
+    "feedback": null
+}

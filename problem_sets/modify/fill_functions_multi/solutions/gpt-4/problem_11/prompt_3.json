@@ -1,0 +1,7 @@
+{
+    "problem_identifier": "problem_11",
+    "model_identifier": "gpt-4",
+    "prompt_identifier": "prompt_3",
+    "solution_code": "import cv2\nfrom typing import List\n\ndef convex_hull_area_comparison(contour1: List[List[int]], contour2: List[List[int]]) -> float:\n    # Convert the input contours to NumPy arrays for compatibility with OpenCV\n    contour1 = np.array(contour1)\n    contour2 = np.array(contour2)\n\n    # Calculate the convex hulls for both contours\n    hull1 = cv2.convexHull(contour1)\n    hull2 = cv2.convexHull(contour2)\n\n    # Calculate the areas of the convex hulls\n    area1 = cv2.contourArea(hull1)\n    area2 = cv2.contourArea(hull2)\n\n    # Return the absolute difference in area between the convex hulls\n    return abs(area1 - area2)\n",
+    "feedback": null
+}

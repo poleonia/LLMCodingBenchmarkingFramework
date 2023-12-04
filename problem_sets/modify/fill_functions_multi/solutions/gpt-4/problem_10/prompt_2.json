@@ -1,0 +1,7 @@
+{
+    "problem_identifier": "problem_10",
+    "model_identifier": "gpt-4",
+    "prompt_identifier": "prompt_2",
+    "solution_code": "from typing import List\n\ndef vertical_stacking_check(contour1: List[List[int]], contour2: List[List[int]]) -> bool:\n    max_y_contour1 = max(contour1, key=lambda point: point[1])[1]\n    min_y_contour2 = min(contour2, key=lambda point: point[1])[1]\n    return max_y_contour1 < min_y_contour2\n",
+    "feedback": null
+}

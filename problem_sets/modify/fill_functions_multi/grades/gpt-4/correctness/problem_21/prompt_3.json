@@ -1,0 +1,11 @@
+{
+    "problem_identifier": "problem_21",
+    "prompt_identifier": "prompt_3",
+    "model_identifier": "gpt-4",
+    "score": 0.0,
+    "sub_criteria_scores": null,
+    "issues": [
+        "Test failed:\n\tInput: arr1 = ['flower', 'flow', 'flight'], arr2 = ['flop', 'flap', 'fleet']; Expected Output: fl\n\tFunction prototype: longest_common_substring(arr1: List[str], arr2: List[str]) -> str\n\tExpected result: fl <class 'str'>\n\tActual result: flo <class 'str'>",
+        "Test failed:\n\tInput: arr1 = ['apple', 'apricot', 'mango'], arr2 = ['stone', 'bone', 'cone']; Expected Output: \n\tFunction prototype: longest_common_substring(arr1: List[str], arr2: List[str]) -> str\n\tExpected result:  <class 'str'>\n\tActual result: co <class 'str'>"
+    ]
+}

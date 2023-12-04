@@ -1,0 +1,7 @@
+{
+    "problem_identifier": "problem_16",
+    "model_identifier": "gpt-4",
+    "prompt_identifier": "prompt_1",
+    "solution_code": "from typing import List\nimport numpy as np\nimport cv2\n\ndef intersection_points_count(contour1: List[List[int]], contour2: List[List[int]]) -> int:\n    contour1 = np.array(contour1, dtype=np.int32).reshape((-1, 1, 2))\n    contour2 = np.array(contour2, dtype=np.int32).reshape((-1, 1, 2))\n    \n    img1 = np.zeros((1000, 1000), dtype=np.uint8)\n    cv2.drawContours(img1, [contour1], 0, (255, 255, 255), thickness=cv2.FILLED)\n    cv2.drawContours(img1, [contour2], 0, (255, 255, 255), thickness=cv2.FILLED)\n    \n    intersection = cv2.bitwise_and(img1, img1, mask=None)\n    intersection_points = np.where(intersection == 255)\n    \n    return len(intersection_points[0])\n\n# Example usage:\ncontour1 = [[0, 0], [0, 1], [1, 1], [1, 0]]\ncontour2 = [[0, 0], [0, 1], [1, 1], [1, 2], [2, 2], [2, 1], [2, 0]]\ncount = intersection_points_count(contour1, contour2)\nprint(\"Number of intersection points:\", count)\n",
+    "feedback": null
+}

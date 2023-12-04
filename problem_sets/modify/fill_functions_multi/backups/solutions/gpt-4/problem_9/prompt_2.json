@@ -1,0 +1,7 @@
+{
+    "problem_identifier": "problem_9",
+    "model_identifier": "gpt-4",
+    "prompt_identifier": "prompt_2",
+    "solution_code": "from typing import List\nimport numpy as np\nimport cv2\n\ndef overlap_area(contour1: List[List[int]], contour2: List[List[int]]) -> int:\n    # Create blank images to draw contours\n    image1 = np.zeros((100, 100), dtype=np.uint8)\n    image2 = np.zeros((100, 100), dtype=np.uint8)\n\n    # Draw the contours on the images\n    cv2.drawContours(image1, [np.array(contour1)], -1, 1, thickness=cv2.FILLED)\n    cv2.drawContours(image2, [np.array(contour2)], -1, 1, thickness=cv2.FILLED)\n\n    # Calculate the area of overlap by summing the values where both images have a pixel value of 2\n    overlap = np.sum((image1 + image2) == 2)\n\n    return overlap\n",
+    "feedback": null
+}

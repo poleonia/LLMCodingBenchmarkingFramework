@@ -1,0 +1,7 @@
+{
+    "problem_identifier": "problem_13",
+    "model_identifier": "gpt-4",
+    "prompt_identifier": "is_even",
+    "solution_code": "def is_even(n: int) -> bool:\n    return n % 2 == 0\n",
+    "feedback": null
+}

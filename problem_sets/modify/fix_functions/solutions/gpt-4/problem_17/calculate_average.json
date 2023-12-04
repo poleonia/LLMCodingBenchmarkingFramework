@@ -1,0 +1,7 @@
+{
+    "problem_identifier": "problem_17",
+    "model_identifier": "gpt-4",
+    "prompt_identifier": "calculate_average",
+    "solution_code": "def calculate_average(numbers: list) -> float:\n    total = sum(numbers)\n    count = len(numbers)\n    return total / count\n",
+    "feedback": null
+}

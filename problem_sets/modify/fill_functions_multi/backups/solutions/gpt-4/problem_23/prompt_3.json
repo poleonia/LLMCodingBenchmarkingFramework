@@ -1,0 +1,7 @@
+{
+    "problem_identifier": "problem_23",
+    "model_identifier": "gpt-4",
+    "prompt_identifier": "prompt_3",
+    "solution_code": "from collections import Counter\nfrom typing import List\n\ndef is_permutation_in_array(arr1: List[str], arr2: List[str]) -> bool:\n    def is_permutation(s1, s2):\n        return Counter(s1) == Counter(s2)\n\n    for string1 in arr1:\n        for string2 in arr2:\n            if is_permutation(string1, string2):\n                return True\n    return False\n",
+    "feedback": null
+}

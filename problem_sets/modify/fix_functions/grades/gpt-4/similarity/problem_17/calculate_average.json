@@ -1,0 +1,8 @@
+{
+    "problem_identifier": "problem_17",
+    "prompt_identifier": "calculate_average",
+    "model_identifier": "gpt-4",
+    "score": 0.8,
+    "sub_criteria_scores": null,
+    "issues": []
+}

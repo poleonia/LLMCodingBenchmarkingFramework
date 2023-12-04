@@ -1,0 +1,11 @@
+{
+    "problem_identifier": "problem_9",
+    "prompt_identifier": "prompt_3",
+    "model_identifier": "gpt-4",
+    "score": 0.0,
+    "sub_criteria_scores": null,
+    "issues": [
+        "Test failed:\n\tInput: contour1 = [[10, 10], [30, 10], [30, 30], [10, 30]], contour2 = [[20, 20], [40, 20], [40, 40], [20, 40]]; Expected Output: 100\n\tFunction prototype: overlap_area(contour1: List[List[int]], contour2: List[List[int]]) -> int\n\tExpected result: 100 <class 'int'>\n\tActual result: 121 <class 'int'>",
+        "Test failed:\n\tInput: contour1 = [[5, 5], [15, 5], [15, 15], [5, 15]], contour2 = [[10, 10], [20, 10], [20, 20], [10, 20]]; Expected Output: 25\n\tFunction prototype: overlap_area(contour1: List[List[int]], contour2: List[List[int]]) -> int\n\tExpected result: 25 <class 'int'>\n\tActual result: 36 <class 'int'>"
+    ]
+}

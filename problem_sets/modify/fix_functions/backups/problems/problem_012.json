@@ -1,0 +1,24 @@
+{
+    "identifier": "problem_12",
+    "description": "Write a function that checks if a string is a palindrome.",
+    "prompts": [
+        {
+            "prompt_id": "is_palindrome",
+            "prompt": "The function `is_palindrome` should return `True` if a string is a palindrome and `False` otherwise. The provided code is not functioning as it should. Debug and fix it.",
+            "genericize": false,
+            "input_code": "def is_palindrome(s: str) -> bool:\n    reversed_str = s[::-1]\n    if s = reversed_str:\n        return True\n    else:\n        return False"
+        }
+    ],
+    "function_prototype": {
+        "function_name": "is_palindrome",
+        "parameters": [{"name": "s", "type": "str"}],
+        "return_values": [{"type": "bool"}]
+    },
+    "correctness_test_suite": [
+        {"input": {"s": "madam"}, "expected_output": [true]},
+        {"input": {"s": "openai"}, "expected_output": [false]}
+    ],
+    "optimal_solution": "def is_palindrome(s: str) -> bool:\n    return s == s[::-1]",
+    "additional_instructions": "The check should be case-insensitive.",
+    "tags": ["String", "Palindrome", "Easy", "Syntax Error"]
+}

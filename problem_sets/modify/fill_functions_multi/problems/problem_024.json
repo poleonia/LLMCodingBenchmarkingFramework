@@ -1,0 +1,60 @@
+{
+    "identifier": "problem_24",
+    "description": "Write a program to find the string with the longest substring without repeating characters from two arrays of strings.",
+    "prompts": [
+        {
+            "prompt_id": "prompt_1",
+            "prompt": "Please fix an incomplete function `longest_unique_substring` that finds the string with the longest substring without repeating characters from two arrays of strings. A line of code is missing in the function implementation.",
+            "genericize": false,
+            "input_code": "def longest_unique_substring(arr1: List[str], arr2: List[str]) -> int:\n    def longest_unique_substr(s):\n        seen = {}\n        start = 0\n        max_length = 0\n        # A line of code is missing here\n        for i, c in enumerate(s):\n            if c in seen and start <= seen[c]:\n                start = seen[c] + 1\n            else:\n                max_length = max(max_length, i - start + 1)\n            seen[c] = i\n        return max_length\n    longest = 0\n    for string in arr1 + arr2:\n        longest = max(longest, longest_unique_substr(string))\n    return longest"
+        },
+        {
+            "prompt_id": "prompt_2",
+            "prompt": "Please fix an incomplete function `longest_unique_substring` that finds the string with the longest substring without repeating characters from two arrays of strings. Another line of code is missing in this version of the function.",
+            "genericize": false,
+            "input_code": "def longest_unique_substring(arr1: List[str], arr2: List[str]) -> int:\n    def longest_unique_substr(s):\n        seen = {}\n        start = 0\n        # A line of code is missing here\n        for i, c in enumerate(s):\n            if c in seen and start <= seen[c]:\n                start = seen[c] + 1\n            seen[c] = i\n        return max_length\n    longest = 0\n    for string in arr1 + arr2:\n        longest = max(longest, longest_unique_substr(string))\n    return longest"
+        },
+        {
+            "prompt_id": "prompt_3",
+            "prompt": "Please fix an incomplete function `longest_unique_substring` that finds the string with the longest substring without repeating characters from two arrays of strings. This version of the function is missing an additional line of code.",
+            "genericize": false,
+            "input_code": "def longest_unique_substring(arr1: List[str], arr2: List[str]) -> int:\n    def longest_unique_substr(s):\n        seen = {}\n        # A line of code is missing here\n        for i, c in enumerate(s):\n            if c in seen and start <= seen[c]:\n                start = seen[c] + 1\n            seen[c] = i\n        return max_length\n    longest = 0\n    for string in arr1 + arr2:\n        longest = max(longest, longest_unique_substr(string))\n    return longest"
+        }
+    ],
+    "function_prototype": {
+        "function_name": "longest_unique_substring",
+        "parameters": [
+            {
+                "name": "arr1",
+                "type": "List[str]"
+            },
+            {
+                "name": "arr2",
+                "type": "List[str]"
+            }
+        ],
+        "return_values": [
+            {
+                "type": "int"
+            }
+        ]
+    },
+    "correctness_test_suite": [
+        {
+            "input": {
+                "arr1": ["abca", "xyz"],
+                "arr2": ["pqr", "abcd"]
+            },
+            "expected_output": [
+                4
+            ]
+        }
+    ],
+    "optimal_solution": "def longest_unique_substring(arr1: List[str], arr2: List[str]) -> int:\n    def longest_unique_substr(s):\n        seen = {}\n        start = 0\n        max_length = 0\n        for i, c in enumerate(s):\n            if c in seen and start <= seen[c]:\n                start = seen[c] + 1\n            else:\n                max_length = max(max_length, i - start + 1)\n            seen[c] = i\n        return max_length\n    longest = 0\n    for string in arr1 + arr2:\n        longest = max(longest, longest_unique_substr(string))\n    return longest",
+    "tags": [
+        "String",
+        "Substring",
+        "Non-repeating",
+        "Intermediate"
+    ]
+}

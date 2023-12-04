@@ -1,0 +1,7 @@
+{
+    "problem_identifier": "problem_20",
+    "model_identifier": "gpt-4",
+    "prompt_identifier": "count_char_occurrences",
+    "solution_code": "def count_char_occurrences(s: str, char: str) -> int:\n    count = 0\n    for c in s:\n        if c == char:\n            count += 1\n    return count\n",
+    "feedback": null
+}

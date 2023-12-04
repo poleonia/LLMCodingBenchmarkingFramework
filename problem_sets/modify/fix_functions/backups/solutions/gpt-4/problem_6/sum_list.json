@@ -1,0 +1,7 @@
+{
+    "problem_identifier": "problem_6",
+    "model_identifier": "gpt-4",
+    "prompt_identifier": "sum_list",
+    "solution_code": "def sum_list(numbers: list) -> int:\n    total = 0\n    for number in numbers:  # Add a colon at the end of the for statement\n        total += number\n    return total\n",
+    "feedback": null
+}

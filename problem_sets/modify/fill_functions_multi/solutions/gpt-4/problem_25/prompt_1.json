@@ -1,0 +1,7 @@
+{
+    "problem_identifier": "problem_25",
+    "model_identifier": "gpt-4",
+    "prompt_identifier": "prompt_1",
+    "solution_code": "from typing import List\n\ndef count_substring_partitioning(arr1: List[str], arr2: List[str]) -> int:\n    def count_ways(s, part, memo):\n        if s in memo:\n            return memo[s]\n        if not s:\n            return 1\n        cnt = 0\n        for substr in part:\n            if s.startswith(substr):\n                cnt += count_ways(s[len(substr):], part, memo)\n        memo[s] = cnt\n        return cnt\n    \n    count = 0\n    for string in arr1:\n        count += count_ways(string, arr2, {})\n    return count\n",
+    "feedback": null
+}

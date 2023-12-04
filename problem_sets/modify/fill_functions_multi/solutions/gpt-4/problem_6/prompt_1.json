@@ -1,0 +1,7 @@
+{
+    "problem_identifier": "problem_6",
+    "model_identifier": "gpt-4",
+    "prompt_identifier": "prompt_1",
+    "solution_code": "from typing import List\nimport numpy as np\n\ndef perimeter_comparison(contour1: List[List[int]], contour2: List[List[int]]) -> float:\n    perimeter1 = np.sum(np.sqrt(np.sum(np.diff(contour1 + [contour1[0]], axis=0)**2, axis=1)))\n    perimeter2 = np.sum(np.sqrt(np.sum(np.diff(contour2 + [contour2[0]], axis=0)**2, axis=1)))\n    return abs(perimeter1 - perimeter2)\n",
+    "feedback": null
+}

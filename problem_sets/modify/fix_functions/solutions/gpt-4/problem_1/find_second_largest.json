@@ -1,0 +1,7 @@
+{
+    "problem_identifier": "problem_1",
+    "model_identifier": "gpt-4",
+    "prompt_identifier": "find_second_largest",
+    "solution_code": "def find_second_largest(numbers: list) -> int:\n    if len(numbers) < 2:\n        raise ValueError(\"The list should have at least two elements to find the second largest.\")\n    \n    largest = max(numbers)\n    second_largest = min(numbers)\n    \n    for number in numbers:\n        if largest > number > second_largest:\n            second_largest = number\n            \n    return second_largest\n",
+    "feedback": null
+}

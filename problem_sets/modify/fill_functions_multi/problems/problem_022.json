@@ -1,0 +1,60 @@
+{
+    "identifier": "problem_22",
+    "description": "Use dynamic programming to find a string that contains as many substrings from the first array as possible without containing any substrings from the second array.",
+    "prompts": [
+        {
+            "prompt_id": "prompt_1",
+            "prompt": "Please fix an incomplete function `dynamic_substring_exclusion` that uses dynamic programming to find a string containing as many substrings from the first array as possible without including any substrings from the second array. A line of code is missing in the function implementation.",
+            "genericize": false,
+            "input_code": "def dynamic_substring_exclusion(arr1: List[str], arr2: List[str]) -> int:\n    def is_substring(s, sub):\n        return s.find(sub) != -1\n    def dp(arr, index, current, memo):\n        if index == len(arr):\n            return 0 if any(is_substring(current, s) for s in arr2) else len(current)\n        if (index, current) in memo:\n            return memo[(index, current)]\n        # A line of code is missing here\n        exclude = dp(arr, index + 1, current, memo)\n        memo[(index, current)] = max(include, exclude)\n        return memo[(index, current)]\n    return dp(arr1, 0, \"\", {})"
+        },
+        {
+            "prompt_id": "prompt_2",
+            "prompt": "Please fix an incomplete function `dynamic_substring_exclusion` that uses dynamic programming to find a string containing as many substrings from the first array as possible without including any substrings from the second array. Another line of code is missing in this version of the function.",
+            "genericize": false,
+            "input_code": "def dynamic_substring_exclusion(arr1: List[str], arr2: List[str]) -> int:\n    def is_substring(s, sub):\n        return s.find(sub) != -1\n    def dp(arr, index, current, memo):\n        if index == len(arr):\n            return 0 if any(is_substring(current, s) for s in arr2) else len(current)\n        # A line of code is missing here\n        include = dp(arr, index + 1, current + arr[index], memo)\n        exclude = dp(arr, index + 1, current, memo)\n        memo[(index, current)] = max(include, exclude)\n        return memo[(index, current)]\n    return dp(arr1, 0, \"\", {})"
+        },
+        {
+            "prompt_id": "prompt_3",
+            "prompt": "Please fix an incomplete function `dynamic_substring_exclusion` that uses dynamic programming to find a string containing as many substrings from the first array as possible without including any substrings from the second array. This version of the function is missing an additional line of code.",
+            "genericize": false,
+            "input_code": "def dynamic_substring_exclusion(arr1: List[str], arr2: List[str]) -> int:\n    def is_substring(s, sub):\n        # A line of code is missing here\n        def dp(arr, index, current, memo):\n        if index == len(arr):\n            return 0 if any(is_substring(current, s) for s in arr2) else len(current)\n        include = dp(arr, index + 1, current + arr[index], memo)\n        exclude = dp(arr, index + 1, current, memo)\n        memo[(index, current)] = max(include, exclude)\n        return memo[(index, current)]\n    return dp(arr1, 0, \"\", {})"
+        }
+    ],
+    "function_prototype": {
+        "function_name": "dynamic_substring_exclusion",
+        "parameters": [
+            {
+                "name": "arr1",
+                "type": "List[str]"
+            },
+            {
+                "name": "arr2",
+                "type": "List[str]"
+            }
+        ],
+        "return_values": [
+            {
+                "type": "int"
+            }
+        ]
+    },
+    "correctness_test_suite": [
+        {
+            "input": {
+                "arr1": ["ab", "cd", "e"],
+                "arr2": ["abc", "de"]
+            },
+            "expected_output": [
+                3
+            ]
+        }
+    ],
+    "optimal_solution": "def dynamic_substring_exclusion(arr1: List[str], arr2: List[str]) -> int:\n    def is_substring(s, sub):\n        return s.find(sub) != -1\n    def dp(arr, index, current, memo):\n        if index == len(arr):\n            return 0 if any(is_substring(current, s) for s in arr2) else len(current)\n        if (index, current) in memo:\n            return memo[(index, current)]\n        include = dp(arr, index + 1, current + arr[index], memo)\n        exclude = dp(arr, index + 1, current, memo)\n        memo[(index, current)] = max(include, exclude)\n        return memo[(index, current)]\n    return dp(arr1, 0, \"\", {})",
+    "tags": [
+        "Dynamic Programming",
+        "String",
+        "Substring",
+        "Intermediate"
+    ]
+}

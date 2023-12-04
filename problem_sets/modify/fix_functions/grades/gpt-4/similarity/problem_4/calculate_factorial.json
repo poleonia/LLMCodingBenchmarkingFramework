@@ -1,0 +1,8 @@
+{
+    "problem_identifier": "problem_4",
+    "prompt_identifier": "calculate_factorial",
+    "model_identifier": "gpt-4",
+    "score": 0.5,
+    "sub_criteria_scores": null,
+    "issues": []
+}

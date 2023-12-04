@@ -1,0 +1,137 @@
+{
+    "identifier": "problem_19",
+    "description": "Compare the maximum curvature found in each contour.",
+    "prompts": [
+        {
+            "prompt_id": "prompt_1",
+            "prompt": "Please fix an incomplete function `max_curvature_comparison` that calculates and compares the maximum curvature found in two given contours. The curvature at a point is defined based on the change in the angle of the tangent at that point. Each contour is represented as a list of points, where each point is a list of two integers representing the x and y coordinates. The function should return the absolute difference in the maximum curvature found in each contour.",
+            "genericize": false,
+            "input_code": "import numpy as np\n\nfrom typing import List\n\ndef max_curvature_comparison(contour1: List[List[int]], contour2: List[List[int]]) -> float:\n    def curvature(point1, point2, point3):\n        # A line of code is missing here\n    def max_curvature(contour):\n        max_curv = 0\n        for i in range(1, len(contour) - 1):\n            curv = curvature(contour[i - 1], contour[i], contour[i + 1])\n            max_curv = max(max_curv, curv)\n        return max_curv\n    max_curvature1 = max_curvature(contour1)\n    max_curvature2 = max_curvature(contour2)\n    return abs(max_curvature1 - max_curvature2)"
+        },
+        {
+            "prompt_id": "prompt_2",
+            "prompt": "Please fix an incomplete function `max_curvature_comparison` that calculates and compares the maximum curvature found in two given contours. The curvature at a point is defined based on the change in the angle of the tangent at that point. Each contour is represented as a list of points, where each point is a list of two integers representing the x and y coordinates. The function should return the absolute difference in the maximum curvature found in each contour.",
+            "genericize": false,
+            "input_code": "import numpy as np\n\nfrom typing import List\ndef max_curvature_comparison(contour1: List[List[int]], contour2: List[List[int]]) -> float:\n    def curvature(point1, point2, point3):\n        # A line of code is missing here\n    def max_curvature(contour):\n        max_curv = 0\n        for i in range(1, len(contour) - 1):\n            max_curv = max(max_curv, curv)\n        return max_curv\n    max_curvature1 = max_curvature(contour1)\n    max_curvature2 = max_curvature(contour2)\n    return abs(max_curvature1 - max_curvature2)"
+        },
+        {
+            "prompt_id": "prompt_3",
+            "prompt": "Please fix an incomplete function `max_curvature_comparison` that calculates and compares the maximum curvature found in two given contours. The curvature at a point is defined based on the change in the angle of the tangent at that point. Each contour is represented as a list of points, where each point is a list of two integers representing the x and y coordinates. The function should return the absolute difference in the maximum curvature found in each contour.",
+            "genericize": false,
+            "input_code": "import numpy as np\n\nfrom typing import List\ndef max_curvature_comparison(contour1: List[List[int]], contour2: List[List[int]]) -> float:\n    def curvature(point1, point2, point3):\n        # A line of code is missing here\n    def max_curvature(contour):\n        max_curv = 0\n        for i in range(1, len(contour) - 1):\n            max_curv = max(max_curv, curv)\n        return max_curv\n    max_curvature1 = max_curvature(contour1)\n    max_curvature2 = max_curvature(contour2)\n    return abs(max_curvature1 - max_curvature2)"
+        }
+    ],
+    "function_prototype": {
+        "function_name": "max_curvature_comparison",
+        "parameters": [
+            {
+                "name": "contour1",
+                "type": "List[List[int]]"
+            },
+            {
+                "name": "contour2",
+                "type": "List[List[int]]"
+            }
+        ],
+        "return_values": [
+            {
+                "type": "float"
+            }
+        ]
+    },
+    "correctness_test_suite": [
+        {
+            "input": {
+                "contour1": [
+                    [
+                        0,
+                        0
+                    ],
+                    [
+                        1,
+                        0
+                    ],
+                    [
+                        1,
+                        1
+                    ],
+                    [
+                        0,
+                        1
+                    ]
+                ],
+                "contour2": [
+                    [
+                        1,
+                        1
+                    ],
+                    [
+                        2,
+                        1
+                    ],
+                    [
+                        2,
+                        2
+                    ],
+                    [
+                        1,
+                        2
+                    ]
+                ]
+            },
+            "expected_output": [
+                0.0
+            ]
+        },
+        {
+            "input": {
+                "contour1": [
+                    [
+                        1,
+                        1
+                    ],
+                    [
+                        2,
+                        1
+                    ],
+                    [
+                        2,
+                        2
+                    ],
+                    [
+                        1,
+                        2
+                    ]
+                ],
+                "contour2": [
+                    [
+                        2,
+                        2
+                    ],
+                    [
+                        3,
+                        2
+                    ],
+                    [
+                        3,
+                        3
+                    ],
+                    [
+                        2,
+                        3
+                    ]
+                ]
+            },
+            "expected_output": [
+                0.0
+            ]
+        }
+    ],
+    "optimal_solution": "import numpy as np\n\nfrom typing import List\n\ndef max_curvature_comparison(contour1: List[List[int]], contour2: List[List[int]]) -> float:\n    def curvature(point1, point2, point3):\n        p1, p2, p3 = np.array(point1), np.array(point2), np.array(point3)\n        v1 = p2 - p1\n        v2 = p3 - p2\n        return np.linalg.norm(np.cross(v1, v2)) / (np.linalg.norm(v1) ** 2 * np.linalg.norm(v2))\n    def max_curvature(contour):\n        max_curv = 0\n        for i in range(1, len(contour) - 1):\n            curv = curvature(contour[i - 1], contour[i], contour[i + 1])\n            max_curv = max(max_curv, curv)\n        return max_curv\n    max_curvature1 = max_curvature(contour1)\n    max_curvature2 = max_curvature(contour2)\n    return abs(max_curvature1 - max_curvature2)",
+    "tags": [
+        "Geometry",
+        "Curvature Analysis",
+        "Contour",
+        "Intermediate"
+    ]
+}

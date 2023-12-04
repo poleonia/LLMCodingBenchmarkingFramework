@@ -1,0 +1,24 @@
+{
+    "identifier": "problem_7",
+    "description": "Write a function that reverses a string.",
+    "prompts": [
+        {
+            "prompt_id": "reverse_string",
+            "prompt": "The function `reverse_string` should return a string in reverse order. The current code does not work as intended. Debug and fix it to reverse the string correctly.",
+            "genericize": false,
+            "input_code": "def reverse_string(s: str) -> str:\n    return s[::-1]"
+        }
+    ],
+    "function_prototype": {
+        "function_name": "reverse_string",
+        "parameters": [{"name": "s", "type": "str"}],
+        "return_values": [{"type": "str"}]
+    },
+    "correctness_test_suite": [
+        {"input": {"s": "python"}, "expected_output": ["nohtyp"]},
+        {"input": {"s": "algorithm"}, "expected_output": ["mhtirogla"]}
+    ],
+    "optimal_solution": "def reverse_string(s: str) -> str:\n    return ''.join(reversed(s))",
+    "additional_instructions": "Take into consideration strings with spaces and special characters.",
+    "tags": ["String", "Reverse", "Easy", "Syntax Error"]
+}

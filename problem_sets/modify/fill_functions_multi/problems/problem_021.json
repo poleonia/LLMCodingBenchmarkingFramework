@@ -1,0 +1,69 @@
+{
+    "identifier": "problem_21",
+    "description": "Given two arrays of strings, write a function to find the longest common substring present in all strings of the arrays. The function should return the longest common substring found.",
+    "prompts": [
+        {
+            "prompt_id": "prompt_1",
+            "prompt": "Please fix an incomplete function `longest_common_substring` that finds the longest common substring in two string arrays. A line of code is missing in the function implementation.",
+            "genericize": false,
+            "input_code": "def longest_common_substring(arr1, arr2):\n    def common_substr_in_all_arrays(substr):\n        return all(substr in string for string in arr1 + arr2)\n    def lcs(X, Y):\n        m, n = len(X), len(Y)\n        result, end = 0, 0\n        # A line of code is missing here\n        for i in range(1, m + 1):\n            for j in range(1, n + 1):\n                if X[i - 1] == Y[j - 1]:\n                    length[i][j] = length[i - 1][j - 1] + 1\n        return X[end - result: end]\n    common_substr = ''\n    for string1 in arr1:\n        for string2 in arr2:\n            substr = lcs(string1, string2)\n            if len(substr) > len(common_substr):\n                common_substr = substr\n    return common_substr"
+        },
+        {
+            "prompt_id": "prompt_2",
+            "prompt": "Please fix an incomplete function `longest_common_substring` that finds the longest common substring in two string arrays. Another line of code is missing in this version of the function.",
+            "genericize": false,
+            "input_code": "def longest_common_substring(arr1, arr2):\n    def common_substr_in_all_arrays(substr):\n        return all(substr in string for string in arr1 + arr2)\n    def lcs(X, Y):\n        # A line of code is missing here\n        for i in range(1, m + 1):\n            for j in range(1, n + 1):\n                if X[i - 1] == Y[j - 1]:\n                    length[i][j] = length[i - 1][j - 1] + 1\n        return X[end - result: end]\n    common_substr = ''\n    for string1 in arr1:\n        for string2 in arr2:\n            substr = lcs(string1, string2)\n            if len(substr) > len(common_substr):\n                common_substr = substr\n    return common_substr"
+        },
+        {
+            "prompt_id": "prompt_3",
+            "prompt": "Please fix an incomplete function `longest_common_substring` that finds the longest common substring in two string arrays. This version of the function is missing an additional line of code.",
+            "genericize": false,
+            "input_code": "def longest_common_substring(arr1, arr2):\n    def common_substr_in_all_arrays(substr):\n        # A line of code is missing here\n        for i in range(1, m + 1):\n            for j in range(1, n + 1):\n                if X[i - 1] == Y[j - 1]:\n                    length[i][j] = length[i - 1][j - 1] + 1\n        return X[end - result: end]\n    common_substr = ''\n    for string1 in arr1:\n        for string2 in arr2:\n            substr = lcs(string1, string2)\n            if len(substr) > len(common_substr):\n                common_substr = substr\n    return common_substr"
+        }
+    ],
+    "function_prototype": {
+        "function_name": "longest_common_substring",
+        "parameters": [
+            {
+                "name": "arr1",
+                "type": "List[str]"
+            },
+            {
+                "name": "arr2",
+                "type": "List[str]"
+            }
+        ],
+        "return_values": [
+            {
+                "type": "str"
+            }
+        ]
+    },
+    "correctness_test_suite": [
+        {
+            "input": {
+                "arr1": ["flower", "flow", "flight"],
+                "arr2": ["flop", "flap", "fleet"]
+            },
+            "expected_output": [
+                "fl"
+            ]
+        },
+        {
+            "input": {
+                "arr1": ["apple", "apricot", "mango"],
+                "arr2": ["stone", "bone", "cone"]
+            },
+            "expected_output": [
+                ""
+            ]
+        }
+    ],
+    "optimal_solution": "def longest_common_substring(arr1, arr2):\n    def common_substr_in_all_arrays(substr):\n        return all(substr in string for string in arr1 + arr2)\n    def lcs(X, Y):\n        m, n = len(X), len(Y)\n        result, end = 0, 0\n        length = [[0 for j in range(n+1)] for i in range(m+1)]\n        for i in range(1, m + 1):\n            for j in range(1, n + 1):\n                if X[i - 1] == Y[j - 1]:\n                    length[i][j] = length[i - 1][j - 1] + 1\n                    if length[i][j] > result and common_substr_in_all_arrays(X[i - length[i][j]:i]):\n                        result = length[i][j]\n                        end = i\n                else:\n                    length[i][j] = 0\n        return X[end - result: end]\n    common_substr = ''\n    for string1 in arr1:\n        for string2 in arr2:\n            substr = lcs(string1, string2)\n            if len(substr) > len(common_substr):\n                common_substr = substr\n    return common_substr",
+    "tags": [
+        "String",
+        "Substring",
+        "Dynamic Programming",
+        "Intermediate"
+    ]
+}

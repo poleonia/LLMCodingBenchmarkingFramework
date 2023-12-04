@@ -1,0 +1,7 @@
+{
+    "problem_identifier": "problem_7",
+    "model_identifier": "gpt-4",
+    "prompt_identifier": "prompt_1",
+    "solution_code": "import numpy as np\nimport math\nfrom typing import List\n\ndef orientation_comparison(contour1: List[List[int]], contour2: List[List[int]]) -> float:\n    def calculate_angle(contour):\n        vector = np.mean(contour, axis=0) - contour[0]\n        angle = math.atan2(vector[1], vector[0])\n        return math.degrees(angle)\n    \n    angle1 = calculate_angle(contour1)\n    angle2 = calculate_angle(contour2)\n    \n    return abs(angle1 - angle2)\n",
+    "feedback": null
+}

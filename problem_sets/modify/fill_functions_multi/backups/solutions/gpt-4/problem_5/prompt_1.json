@@ -1,0 +1,7 @@
+{
+    "problem_identifier": "problem_5",
+    "model_identifier": "gpt-4",
+    "prompt_identifier": "prompt_1",
+    "solution_code": "from typing import List\nimport numpy as np\n\ndef area_comparison(contour1: List[List[int]], contour2: List[List[int]]) -> float:\n    area1 = 0.5 * np.abs(np.dot(np.array(contour1)[:,0], np.roll(np.array(contour1)[:,1], 1)) - np.dot(np.array(contour1)[:,1], np.roll(np.array(contour1)[:,0], 1)))\n    area2 = 0.5 * np.abs(np.dot(np.array(contour2)[:,0], np.roll(np.array(contour2)[:,1], 1)) - np.dot(np.array(contour2)[:,1], np.roll(np.array(contour2)[:,0], 1)))\n    \n    return abs(area1 - area2)\n",
+    "feedback": null
+}

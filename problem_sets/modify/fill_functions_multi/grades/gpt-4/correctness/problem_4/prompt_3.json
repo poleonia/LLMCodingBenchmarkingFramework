@@ -1,0 +1,11 @@
+{
+    "problem_identifier": "problem_4",
+    "prompt_identifier": "prompt_3",
+    "model_identifier": "gpt-4",
+    "score": 0.0,
+    "sub_criteria_scores": null,
+    "issues": [
+        "Test failed:\n\tInput: contour1 = [[0, 0], [2, 0], [2, 2], [0, 2]], contour2 = [[1, 1], [3, 1], [3, 3], [1, 3]]; Expected Output: 1.1102230246251585e-16\n\tFunction prototype: shape_similarity(contour1: List[List[int]], contour2: List[List[int]]) -> float\n\tExpected result: 1.1102230246251585e-16 <class 'float'>\n\tActual result: 1.1102230246251565e-16 <class 'float'>",
+        "Test failed:\n\tInput: contour1 = [[1, 1], [3, 1], [3, 3], [1, 3]], contour2 = [[4, 4], [6, 4], [6, 6], [4, 6]]; Expected Output: 4.440892098501105e-16\n\tFunction prototype: shape_similarity(contour1: List[List[int]], contour2: List[List[int]]) -> float\n\tExpected result: 4.440892098501105e-16 <class 'float'>\n\tActual result: 4.440892098500626e-16 <class 'float'>"
+    ]
+}

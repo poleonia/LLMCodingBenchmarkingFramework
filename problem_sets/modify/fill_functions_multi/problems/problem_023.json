@@ -1,0 +1,69 @@
+{
+    "identifier": "problem_23",
+    "description": "Write a program to check if any string in one array is a permutation of a substring in another array.",
+    "prompts": [
+        {
+            "prompt_id": "prompt_1",
+            "prompt": "Please fix an incomplete function `is_permutation_in_array` that checks if any string in one array is a permutation of a substring in another array. A line of code is missing in the function implementation.",
+            "genericize": false,
+            "input_code": "def is_permutation_in_array(arr1: List[str], arr2: List[str]) -> bool:\n    def check_permutation(s1, s2):\n        return Counter(s1) == Counter(s2)\n    for string1 in arr1:\n        # A line of code is missing here\n        for string2 in arr2:\n            if check_permutation(string1, string2):\n                return True\n    return False"
+        },
+        {
+            "prompt_id": "prompt_2",
+            "prompt": "Please fix an incomplete function `is_permutation_in_array` that checks if any string in one array is a permutation of a substring in another array. Another line of code is missing in this version of the function.",
+            "genericize": false,
+            "input_code": "def is_permutation_in_array(arr1: List[str], arr2: List[str]) -> bool:\n    def check_permutation(s1, s2):\n        # A line of code is missing here\n        for string1 in arr1:\n            for string2 in arr2:\n                if check_permutation(string1, string2):\n                    return True\n    return False"
+        },
+        {
+            "prompt_id": "prompt_3",
+            "prompt": "Please fix an incomplete function `is_permutation_in_array` that checks if any string in one array is a permutation of a substring in another array. This version of the function is missing an additional line of code.",
+            "genericize": false,
+            "input_code": "def is_permutation_in_array(arr1: List[str], arr2: List[str]) -> bool:\n    # A line of code is missing here\n    def check_permutation(s1, s2):\n        for string1 in arr1:\n            for string2 in arr2:\n                if check_permutation(string1, string2):\n                    return True\n    return False"
+        }
+    ],
+    "function_prototype": {
+        "function_name": "is_permutation_in_array",
+        "parameters": [
+            {
+                "name": "arr1",
+                "type": "List[str]"
+            },
+            {
+                "name": "arr2",
+                "type": "List[str]"
+            }
+        ],
+        "return_values": [
+            {
+                "type": "bool"
+            }
+        ]
+    },
+    "correctness_test_suite": [
+        {
+            "input": {
+                "arr1": ["abc", "de"],
+                "arr2": ["cab", "bed", "dog"]
+            },
+            "expected_output": [
+                true
+            ]
+        },
+        {
+            "input": {
+                "arr1": ["hello", "world"],
+                "arr2": ["dlrow", "olleh"]
+            },
+            "expected_output": [
+                true
+            ]
+        }
+    ],
+    "optimal_solution": "def is_permutation_in_array(arr1: List[str], arr2: List[str]) -> bool:\n    from collections import Counter\n    def check_permutation(s1, s2):\n        return Counter(s1) == Counter(s2)\n    for string1 in arr1:\n        for string2 in arr2:\n            if check_permutation(string1, string2):\n                return True\n    return False",
+    "tags": [
+        "String",
+        "Permutation",
+        "Substring",
+        "Intermediate"
+    ]
+}

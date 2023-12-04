@@ -1,0 +1,7 @@
+{
+    "problem_identifier": "problem_21",
+    "model_identifier": "gpt-4",
+    "prompt_identifier": "prompt_1",
+    "solution_code": "from typing import List\n\ndef longest_common_substring(arr1: List[str], arr2: List[str]) -> str:\n    def common_substr_in_all_arrays(substr):\n        return all(substr in string for string in arr1 + arr2)\n\n    def lcs(X, Y):\n        m, n = len(X), len(Y)\n        length = [[0] * (n + 1) for _ in range(m + 1)]  # Initialize the length matrix\n        result, end = 0, 0\n        \n        for i in range(1, m + 1):\n            for j in range(1, n + 1):\n                if X[i - 1] == Y[j - 1]:\n                    length[i][j] = length[i - 1][j - 1] + 1\n                    if length[i][j] > result:\n                        result = length[i][j]\n                        end = i  # Update the end position of the common substring\n        \n        return X[end - result: end]\n\n    common_substr = ''\n    for string1 in arr1:\n        for string2 in arr2:\n            substr = lcs(string1, string2)\n            if len(substr) > len(common_substr):\n                common_substr = substr\n\n    return common_substr\n",
+    "feedback": null
+}

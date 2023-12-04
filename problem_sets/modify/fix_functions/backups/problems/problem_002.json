@@ -1,0 +1,24 @@
+{
+    "identifier": "problem_2",
+    "description": "Create a function that finds the maximum value in a list.",
+    "prompts": [
+        {
+            "prompt_id": "find_max",
+            "prompt": "The provided function `find_maximum` should return the largest integer from a list. However, the function is not working as expected. Debug and fix the function to return the correct maximum value.",
+            "genericize": false,
+            "input_code": "def find_maximum(numbers: list) -> int:\n    max_value = numbers[0]\n    for number in numbers:\n        if max_value < number\n            max_value == number\n    return max_value"
+        }
+    ],
+    "function_prototype": {
+        "function_name": "find_maximum",
+        "parameters": [{"name": "numbers", "type": "list"}],
+        "return_values": [{"type": "int"}]
+    },
+    "correctness_test_suite": [
+        {"input": {"numbers": [1, 2, 3, 4, 5]}, "expected_output": [5]},
+        {"input": {"numbers": [-1, -2, -3, -4, -5]}, "expected_output": [-1]}
+    ],
+    "optimal_solution": "def find_maximum(numbers: list) -> int:\n    return max(numbers)",
+    "additional_instructions": "Consider edge cases where the list might contain negative numbers or be a list of length 1.",
+    "tags": ["Debugging", "Easy", "Syntax Error"]
+}

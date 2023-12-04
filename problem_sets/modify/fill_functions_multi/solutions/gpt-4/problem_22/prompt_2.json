@@ -1,0 +1,7 @@
+{
+    "problem_identifier": "problem_22",
+    "model_identifier": "gpt-4",
+    "prompt_identifier": "prompt_2",
+    "solution_code": "from typing import List\n\ndef dynamic_substring_exclusion(arr1: List[str], arr2: List[str]) -> int:\n    def is_substring(s, sub):\n        return s.find(sub) != -1\n\n    def dp(arr, index, current, memo):\n        if index == len(arr):\n            return 0 if any(is_substring(current, s) for s in arr2) else len(current)\n\n        if (index, current) in memo:  # Check if the result is already memoized\n            return memo[(index, current)]\n\n        include = dp(arr, index + 1, current + arr[index], memo)\n        exclude = dp(arr, index + 1, current, memo)\n        memo[(index, current)] = max(include, exclude)\n        return memo[(index, current)]\n\n    return dp(arr1, 0, \"\", {})\n",
+    "feedback": null
+}

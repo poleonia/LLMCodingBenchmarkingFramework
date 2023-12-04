@@ -1,0 +1,7 @@
+{
+    "problem_identifier": "problem_10",
+    "model_identifier": "gpt-4",
+    "prompt_identifier": "string_length",
+    "solution_code": "The function `remove_duplicates` should return a list with duplicates removed. There is an error in the current implementation. Fix the code to remove duplicates correctly.\n\nFunction Signature:\nremove_duplicates(lst: list) -> list\n\nInput Code:\ndef remove_duplicates(lst: list) -> list:\n    return list(set(lst))",
+    "feedback": null
+}

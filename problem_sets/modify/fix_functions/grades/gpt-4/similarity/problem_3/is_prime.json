@@ -1,0 +1,8 @@
+{
+    "problem_identifier": "problem_3",
+    "prompt_identifier": "is_prime",
+    "model_identifier": "gpt-4",
+    "score": 0.43243243243243246,
+    "sub_criteria_scores": null,
+    "issues": []
+}

@@ -1,0 +1,7 @@
+{
+    "problem_identifier": "problem_8",
+    "model_identifier": "gpt-4",
+    "prompt_identifier": "prompt_2",
+    "solution_code": "import cv2\nfrom typing import List\n\ndef contour_containment_check(contour1: List[List[int]], contour2: List[List[int]]) -> bool:\n    for point in contour1:\n        x, y = point\n        distance = cv2.pointPolygonTest(contour2, (x, y), True)\n        if distance < 0:\n            return False\n    return True\n",
+    "feedback": null
+}

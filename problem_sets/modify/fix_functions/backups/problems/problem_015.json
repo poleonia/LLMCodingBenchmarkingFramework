@@ -1,0 +1,24 @@
+{
+    "identifier": "problem_15",
+    "description": "Write a function to find the minimum value in a list of integers.",
+    "prompts": [
+        {
+            "prompt_id": "find_minimum",
+            "prompt": "The function `find_minimum` should return the smallest integer from a list. The current implementation contains a logical error.",
+            "genericize": false,
+            "input_code": "def find_minimum(numbers: list) -> int:\n    min_value = 0\n    for number in numbers:\n        if min_value > number\n            min_value = number\n    return min_value"
+        }
+    ],
+    "function_prototype": {
+        "function_name": "find_minimum",
+        "parameters": [{"name": "numbers", "type": "list"}],
+        "return_values": [{"type": "int"}]
+    },
+    "correctness_test_suite": [
+        {"input": {"numbers": [1, 2, 3, 4, 5]}, "expected_output": [1]},
+        {"input": {"numbers": [-1, -2, -3, -4, -5]}, "expected_output": [-5]}
+    ],
+    "optimal_solution": "def find_minimum(numbers: list) -> int:\n    return min(numbers)",
+    "additional_instructions": "Ensure that your function handles an empty list appropriately.",
+    "tags": ["Algorithm", "Minimum", "Easy", "Logic Error"]
+}

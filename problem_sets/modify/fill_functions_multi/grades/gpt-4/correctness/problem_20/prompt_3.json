@@ -1,0 +1,10 @@
+{
+    "problem_identifier": "problem_20",
+    "prompt_identifier": "prompt_3",
+    "model_identifier": "gpt-4",
+    "score": 0.5,
+    "sub_criteria_scores": null,
+    "issues": [
+        "Error encountered during execution for test case Input: contour1 = [[0, 0], [1, 0], [1, 1], [0, 1]], contour2 = [[1, 1], [2, 1], [2, 2], [1, 2]]; Expected Output: 0.0: Function execution timed out after 5 seconds.\nNone"
+    ]
+}

@@ -1,0 +1,7 @@
+{
+    "problem_identifier": "problem_8",
+    "model_identifier": "gpt-4",
+    "prompt_identifier": "calculate_power",
+    "solution_code": "The function `concatenate_lists` is intended to concatenate two lists. However, there's a mistake in the code. Fix the code to concatenate the lists correctly.\n\nFunction Signature:\nconcatenate_lists(list1: list, list2: list) -> list\n\nInput Code:\ndef concatenate_lists(list1: list, list2: list) -> list:\n    return list1.extend(list2)",
+    "feedback": null
+}

@@ -1,0 +1,7 @@
+{
+    "problem_identifier": "problem_5",
+    "model_identifier": "gpt-4",
+    "prompt_identifier": "find_gcd",
+    "solution_code": "def find_gcd(a: int, b: int) -> int:\n    while b != 0:  # Continue until b becomes zero\n        a, b = b, a % b\n    return abs(a)  # Ensure the result is non-negative\n",
+    "feedback": null
+}

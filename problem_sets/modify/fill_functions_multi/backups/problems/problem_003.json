@@ -1,0 +1,137 @@
+{
+    "identifier": "problem_3",
+    "description": "Calculate the furthest points distance between two contours.",
+    "prompts": [
+        {
+            "prompt_id": "prompt_1",
+            "prompt": "Please fix an incomplete function `furthest_points_distance` that calculates the distance between the furthest points of two given contours. Each contour is represented as a list of points, where each point is a list of two integers representing the x and y coordinates.",
+            "genericize": false,
+            "input_code": "import numpy as np\n\ndef furthest_points_distance(contour1: List[List[int]], contour2: List[List[int]]) -> float:\n    max_distance = 0\n    for point1 in contour1:\n        # A line of code is missing here\n        if distance > max_distance:\n            max_distance = distance\n    return max_distance"
+        },
+        {
+            "prompt_id": "prompt_2",
+            "prompt": "Please fix an incomplete function `furthest_points_distance` that calculates the distance between the furthest points of two given contours. Each contour is represented as a list of points, where each point is a list of two integers representing the x and y coordinates.",
+            "genericize": false,
+            "input_code": "import numpy as np\n\ndef furthest_points_distance(contour1: List[List[int]], contour2: List[List[int]]) -> float:\n    max_distance = 0\n    for point1 in contour1:\n        if distance > max_distance:\n            max_distance = distance\n    return max_distance"
+        },
+        {
+            "prompt_id": "prompt_3",
+            "prompt": "Please fix an incomplete function `furthest_points_distance` that calculates the distance between the furthest points of two given contours. Each contour is represented as a list of points, where each point is a list of two integers representing the x and y coordinates.",
+            "genericize": false,
+            "input_code": "import numpy as np\n\ndef furthest_points_distance(contour1: List[List[int]], contour2: List[List[int]]) -> float:\n    max_distance = 0\n    for point1 in contour1:\n            max_distance = distance\n    return max_distance"
+        }
+    ],
+    "function_prototype": {
+        "function_name": "furthest_points_distance",
+        "parameters": [
+            {
+                "name": "contour1",
+                "type": "List[List[int]]"
+            },
+            {
+                "name": "contour2",
+                "type": "List[List[int]]"
+            }
+        ],
+        "return_values": [
+            {
+                "type": "float"
+            }
+        ]
+    },
+    "correctness_test_suite": [
+        {
+            "input": {
+                "contour1": [
+                    [
+                        0,
+                        0
+                    ],
+                    [
+                        4,
+                        0
+                    ],
+                    [
+                        4,
+                        3
+                    ],
+                    [
+                        0,
+                        3
+                    ]
+                ],
+                "contour2": [
+                    [
+                        5,
+                        5
+                    ],
+                    [
+                        9,
+                        5
+                    ],
+                    [
+                        9,
+                        8
+                    ],
+                    [
+                        5,
+                        8
+                    ]
+                ]
+            },
+            "expected_output": [
+                12.041594578792296
+            ]
+        },
+        {
+            "input": {
+                "contour1": [
+                    [
+                        1,
+                        1
+                    ],
+                    [
+                        2,
+                        1
+                    ],
+                    [
+                        2,
+                        2
+                    ],
+                    [
+                        1,
+                        2
+                    ]
+                ],
+                "contour2": [
+                    [
+                        3,
+                        3
+                    ],
+                    [
+                        4,
+                        3
+                    ],
+                    [
+                        4,
+                        4
+                    ],
+                    [
+                        3,
+                        4
+                    ]
+                ]
+            },
+            "expected_output": [
+                4.242640687119285
+            ]
+        }
+    ],
+    "optimal_solution": "import numpy as np\n\ndef furthest_points_distance(contour1: List[List[int]], contour2: List[List[int]]) -> float:\n    max_distance = 0\n    for point1 in contour1:\n        for point2 in contour2:\n            distance = np.linalg.norm(np.array(point1) - np.array(point2))\n            if distance > max_distance:\n                max_distance = distance\n    return max_distance",
+    "tags": [
+        "Geometry",
+        "Furthest Points",
+        "Distance Calculation",
+        "Intermediate"
+    ]
+}

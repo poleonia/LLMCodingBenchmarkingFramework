@@ -1,0 +1,7 @@
+{
+    "problem_identifier": "problem_20",
+    "model_identifier": "gpt-4",
+    "prompt_identifier": "prompt_2",
+    "solution_code": "import numpy as np\nimport cv2\nfrom typing import List\n\ndef principal_axis_alignment_comparison(contour1: List[List[int]], contour2: List[List[int]]) -> float:\n    def alignment_distance(contour):\n        # Convert contour points to a numpy array\n        contour_array = np.array(contour)\n\n        # Fit a line to the contour points using cv2.fitLine\n        _, _, vx, vy, x, y = cv2.fitLine(contour_array, cv2.DIST_L2, 0, 0.01, 0.01)\n\n        # Calculate the average distance of contour points from the principal axis\n        avg_distance = np.mean(np.abs((vx * (contour_array[:, 0] - x) + vy * (contour_array[:, 1] - y))))\n\n        return avg_distance\n\n    alignment1 = alignment_distance(contour1)\n    alignment2 = alignment_distance(contour2)\n\n    return abs(float(alignment1) - float(alignment2))\n",
+    "feedback": null
+}

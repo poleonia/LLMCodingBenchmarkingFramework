@@ -1,0 +1,24 @@
+{
+    "identifier": "problem_10",
+    "description": "Implement a function that returns the length of a string without using the built-in `len()` function.",
+    "prompts": [
+        {
+            "prompt_id": "string_length",
+            "prompt": "The function `string_length` should calculate the length of a string without using `len()`. The current implementation is incorrect. Debug and fix the function.",
+            "genericize": false,
+            "input_code": "def string_length(s: str) -> int:\n    count = 0\n    for char in s\n        count += 1\n    return count"
+        }
+    ],
+    "function_prototype": {
+        "function_name": "string_length",
+        "parameters": [{"name": "s", "type": "str"}],
+        "return_values": [{"type": "int"}]
+    },
+    "correctness_test_suite": [
+        {"input": {"s": "data"}, "expected_output": [4]},
+        {"input": {"s": "science"}, "expected_output": [7]}
+    ],
+    "optimal_solution": "def string_length(s: str) -> int:\n    count = 0\n    for char in s:\n        count += 1\n    return count",
+    "additional_instructions": "Make sure to handle empty strings as well.",
+    "tags": ["String", "Length", "Easy", "Syntax Error"]
+}

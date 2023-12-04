@@ -1,0 +1,24 @@
+{
+    "identifier": "problem_6",
+    "description": "Create a function that returns the sum of a list of numbers.",
+    "prompts": [
+        {
+            "prompt_id": "sum_list",
+            "prompt": "The function `sum_list` is supposed to calculate the sum of all numbers in a list. It currently has a bug. Identify and fix it to return the correct sum.",
+            "genericize": false,
+            "input_code": "def sum_list(numbers: list) -> int:\n    total = 0\n    for number in numbers\n        total += number\n    return total"
+        }
+    ],
+    "function_prototype": {
+        "function_name": "sum_list",
+        "parameters": [{"name": "numbers", "type": "list"}],
+        "return_values": [{"type": "int"}]
+    },
+    "correctness_test_suite": [
+        {"input": {"numbers": [7, 8, 9]}, "expected_output": [24]},
+        {"input": {"numbers": [0, 1, 2, 3, 4]}, "expected_output": [10]}
+    ],
+    "optimal_solution": "def sum_list(numbers: list) -> int:\n    return sum(numbers)",
+    "additional_instructions": "Ensure that the function works for an empty list as well.",
+    "tags": ["Sum", "List", "Easy", "Syntax Error"]
+}

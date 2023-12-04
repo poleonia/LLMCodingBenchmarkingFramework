@@ -1,0 +1,7 @@
+{
+    "problem_identifier": "problem_13",
+    "model_identifier": "gpt-4",
+    "prompt_identifier": "prompt_1",
+    "solution_code": "import numpy as np\nfrom typing import List\n\ndef path_length_comparison(contour1: List[List[int]], contour2: List[List[int]]) -> float:\n    length1 = np.sum(np.sqrt(np.sum(np.diff(np.vstack((contour1, [contour1[0]])), axis=0)**2, axis=1)))\n    length2 = np.sum(np.sqrt(np.sum(np.diff(np.vstack((contour2, [contour2[0]])), axis=0)**2, axis=1)))\n    return abs(length1 - length2)\n",
+    "feedback": null
+}

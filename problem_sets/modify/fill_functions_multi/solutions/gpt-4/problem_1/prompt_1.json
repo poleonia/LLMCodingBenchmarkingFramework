@@ -1,0 +1,7 @@
+{
+    "problem_identifier": "problem_1",
+    "model_identifier": "gpt-4",
+    "prompt_identifier": "prompt_1",
+    "solution_code": "import numpy as np\nfrom typing import List\n\ndef euclidean_distance_between_centroids(contour1: List[List[int]], contour2: List[List[int]]) -> float:\n    centroid1 = np.mean(contour1, axis=0)\n    centroid2 = np.mean(contour2, axis=0)  # Calculate the centroid of contour2\n    return np.linalg.norm(centroid1 - centroid2)\n",
+    "feedback": null
+}

@@ -1,0 +1,7 @@
+{
+    "problem_identifier": "problem_4",
+    "model_identifier": "gpt-4",
+    "prompt_identifier": "prompt_1",
+    "solution_code": "from typing import List\nimport numpy as np\nimport cv2\n\ndef shape_similarity(contour1: List[List[int]], contour2: List[List[int]]) -> float:\n    moments1 = cv2.moments(np.array(contour1, dtype=np.float32))\n    moments2 = cv2.moments(np.array(contour2, dtype=np.float32))\n\n    huMoments1 = cv2.HuMoments(moments1).flatten()\n    huMoments2 = cv2.HuMoments(moments2).flatten()\n\n    # Calculate the similarity score using the sum of absolute differences\n    similarity = sum(abs(huMoments1 - huMoments2))\n    \n    return similarity\n",
+    "feedback": null
+}

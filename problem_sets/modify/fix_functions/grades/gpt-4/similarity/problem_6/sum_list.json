@@ -1,0 +1,8 @@
+{
+    "problem_identifier": "problem_6",
+    "prompt_identifier": "sum_list",
+    "model_identifier": "gpt-4",
+    "score": 0.25,
+    "sub_criteria_scores": null,
+    "issues": []
+}

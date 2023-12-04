@@ -1,0 +1,38 @@
+{
+    "identifier": "problem_18",
+    "description": "Measure and compare the complexity of each contour.",
+    "prompts": [
+        {
+            "prompt_id": "prompt",
+            "prompt": "Please fix an incomplete function `contour_complexity_comparison` that measures and compares the complexity of two given contours. The complexity of a contour is defined as the number of vertices it contains. Each contour is represented as a list of points, where each point is a list of two integers representing the x and y coordinates. The function should return the absolute difference in the number of vertices between the two contours.",
+            "genericize": false,
+            "input_code": "def contour_complexity_comparison(contour1: List[List[int]], contour2: List[List[int]]) -> int:\n    complexity1 = len(contour1)\n    # A line of code is missing here\n    return abs(complexity1 - complexity2)"
+        }
+    ],
+    "function_prototype": {
+        "function_name": "contour_complexity_comparison",
+        "parameters": [
+            {"name": "contour1", "type": "List[List[int]]"},
+            {"name": "contour2", "type": "List[List[int]]"}
+        ],
+        "return_values": [{"type": "int"}]
+    },
+    "correctness_test_suite": [
+        {
+            "input": {
+                "contour1": [[0, 0], [1, 0], [1, 1], [0, 1]],
+                "contour2": [[1, 1], [2, 1], [2, 2], [1, 2], [1.5, 1.5]]
+            },
+            "expected_output": [1]
+        },
+        {
+            "input": {
+                "contour1": [[1, 1], [2, 1], [2, 2], [1, 2]],
+                "contour2": [[3, 3], [4, 3], [4, 4], [3, 4], [3.5, 3.5], [3.5, 3.75]]
+            },
+            "expected_output": [2]
+        }
+    ],
+    "optimal_solution": "def contour_complexity_comparison(contour1: List[List[int]], contour2: List[List[int]]) -> int:\n    complexity1 = len(contour1)\n    complexity2 = len(contour2)\n    return abs(complexity1 - complexity2)",
+    "tags": ["Geometry", "Contour Complexity", "Vertex Count", "Contour", "Intermediate"]
+}

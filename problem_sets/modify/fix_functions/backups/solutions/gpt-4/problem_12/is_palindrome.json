@@ -1,0 +1,7 @@
+{
+    "problem_identifier": "problem_12",
+    "model_identifier": "gpt-4",
+    "prompt_identifier": "is_palindrome",
+    "solution_code": "def is_palindrome(s: str) -> bool:\n    # Remove spaces and convert to lowercase\n    s = s.replace(\" \", \"\").lower()\n    reversed_str = s[::-1]\n    return s == reversed_str\n",
+    "feedback": null
+}

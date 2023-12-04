@@ -1,0 +1,137 @@
+{
+    "identifier": "problem_9",
+    "description": "Calculate the area of overlap between two contours.",
+    "prompts": [
+        {
+            "prompt_id": "prompt_1",
+            "prompt": "Please fix an incomplete function `overlap_area` that calculates the area of overlap between two given contours. Each contour is represented as a list of points, where each point is a list of two integers representing the x and y coordinates. The function should return the area of overlap between the two contours.",
+            "genericize": false,
+            "input_code": "import numpy as np\nimport cv2\n\ndef overlap_area(contour1: List[List[int]], contour2: List[List[int]]) -> int:\n    # Create blank images to draw contours\n    image1 = np.zeros((100, 100), dtype=np.uint8)\n    image2 = np.zeros((100, 100), dtype=np.uint8)\n    # A line of code is missing here\n    overlap = np.sum((image1 + image2) > 1)\n    return overlap"
+        },
+        {
+            "prompt_id": "prompt_2",
+            "prompt": "Please fix an incomplete function `overlap_area` that calculates the area of overlap between two given contours. Each contour is represented as a list of points, where each point is a list of two integers representing the x and y coordinates. The function should return the area of overlap between the two contours.",
+            "genericize": false,
+            "input_code": "import numpy as np\nimport cv2\n\ndef overlap_area(contour1: List[List[int]], contour2: List[List[int]]) -> int:\n    # Create blank images to draw contours\n    image1 = np.zeros((100, 100), dtype=np.uint8)\n    image2 = np.zeros((100, 100), dtype=np.uint8)\n    # A line of code is missing here\n    overlap = np.sum((image1 + image2) > 1)\n    return overlap"
+        },
+        {
+            "prompt_id": "prompt_3",
+            "prompt": "Please fix an incomplete function `overlap_area` that calculates the area of overlap between two given contours. Each contour is represented as a list of points, where each point is a list of two integers representing the x and y coordinates. The function should return the area of overlap between the two contours.",
+            "genericize": false,
+            "input_code": "import numpy as np\nimport cv2\n\ndef overlap_area(contour1: List[List[int]], contour2: List[List[int]]) -> int:\n    # Create blank images to draw contours\n    image1 = np.zeros((100, 100), dtype=np.uint8)\n    image2 = np.zeros((100, 100), dtype=np.uint8)\n    # A line of code is missing here\n    return overlap"
+        }
+    ],
+    "function_prototype": {
+        "function_name": "overlap_area",
+        "parameters": [
+            {
+                "name": "contour1",
+                "type": "List[List[int]]"
+            },
+            {
+                "name": "contour2",
+                "type": "List[List[int]]"
+            }
+        ],
+        "return_values": [
+            {
+                "type": "int"
+            }
+        ]
+    },
+    "correctness_test_suite": [
+        {
+            "input": {
+                "contour1": [
+                    [
+                        10,
+                        10
+                    ],
+                    [
+                        30,
+                        10
+                    ],
+                    [
+                        30,
+                        30
+                    ],
+                    [
+                        10,
+                        30
+                    ]
+                ],
+                "contour2": [
+                    [
+                        20,
+                        20
+                    ],
+                    [
+                        40,
+                        20
+                    ],
+                    [
+                        40,
+                        40
+                    ],
+                    [
+                        20,
+                        40
+                    ]
+                ]
+            },
+            "expected_output": [
+                100
+            ]
+        },
+        {
+            "input": {
+                "contour1": [
+                    [
+                        5,
+                        5
+                    ],
+                    [
+                        15,
+                        5
+                    ],
+                    [
+                        15,
+                        15
+                    ],
+                    [
+                        5,
+                        15
+                    ]
+                ],
+                "contour2": [
+                    [
+                        10,
+                        10
+                    ],
+                    [
+                        20,
+                        10
+                    ],
+                    [
+                        20,
+                        20
+                    ],
+                    [
+                        10,
+                        20
+                    ]
+                ]
+            },
+            "expected_output": [
+                25
+            ]
+        }
+    ],
+    "optimal_solution": "import numpy as np\nimport cv2\n\ndef overlap_area(contour1: List[List[int]], contour2: List[List[int]]) -> int:\n    # Create blank images to draw contours\n    image1 = np.zeros((100, 100), dtype=np.uint8)\n    image2 = np.zeros((100, 100), dtype=np.uint8)\n    cv2.drawContours(image1, [np.array(contour1)], -1, 1, thickness=cv2.FILLED)\n    cv2.drawContours(image2, [np.array(contour2)], -1, 1, thickness=cv2.FILLED)\n    overlap = np.sum((image1 + image2) > 1)\n    return overlap",
+    "tags": [
+        "Geometry",
+        "Overlap Area",
+        "Contour",
+        "Intermediate"
+    ]
+}

@@ -1,0 +1,7 @@
+{
+    "problem_identifier": "problem_22",
+    "model_identifier": "gpt-4",
+    "prompt_identifier": "prompt_3",
+    "solution_code": "def dynamic_substring_exclusion(arr1, arr2):\n    def is_substring(s, sub):\n        return sub in s\n\n    def dp(arr, index, current, memo):\n        if index == len(arr):\n            return 0 if any(is_substring(current, s) for s in arr2) else len(current)\n        include = dp(arr, index + 1, current + arr[index], memo)\n        exclude = dp(arr, index + 1, current, memo)\n        memo[(index, current)] = max(include, exclude)\n        return memo[(index, current)]\n\n    return dp(arr1, 0, \"\", {})\n\n# Example usage:\narr1 = [\"abc\", \"def\", \"ghi\"]\narr2 = [\"de\", \"gh\"]\nresult = dynamic_substring_exclusion(arr1, arr2)\nprint(result)  # Output should be 5 (e.g., \"abcdef\")\n",
+    "feedback": null
+}

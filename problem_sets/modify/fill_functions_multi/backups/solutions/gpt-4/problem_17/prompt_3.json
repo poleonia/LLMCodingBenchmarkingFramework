@@ -1,0 +1,7 @@
+{
+    "problem_identifier": "problem_17",
+    "model_identifier": "gpt-4",
+    "prompt_identifier": "prompt_3",
+    "solution_code": "from typing import List\nimport numpy as np\nimport cv2\n\ndef minimum_enclosing_circle_radius_comparison(contour1: List[List[int]], contour2: List[List[int]]) -> float:\n    (x1, y1), radius1 = cv2.minEnclosingCircle(np.array(contour1))\n    (x2, y2), radius2 = cv2.minEnclosingCircle(np.array(contour2))\n    return abs(radius1 - radius2)\n",
+    "feedback": null
+}

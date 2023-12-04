@@ -1,0 +1,8 @@
+{
+    "problem_identifier": "problem_5",
+    "prompt_identifier": "find_gcd",
+    "model_identifier": "gpt-4",
+    "score": 0.48275862068965525,
+    "sub_criteria_scores": null,
+    "issues": []
+}

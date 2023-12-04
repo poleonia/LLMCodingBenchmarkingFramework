@@ -1,0 +1,7 @@
+{
+    "problem_identifier": "problem_15",
+    "model_identifier": "gpt-4",
+    "prompt_identifier": "find_minimum",
+    "solution_code": "def find_minimum(numbers: list) -> int:\n    if not numbers:\n        raise ValueError(\"The list is empty. Cannot find the minimum.\")\n    \n    min_value = numbers[0]\n    for number in numbers:\n        if min_value > number:\n            min_value = number\n    return min_value\n",
+    "feedback": null
+}

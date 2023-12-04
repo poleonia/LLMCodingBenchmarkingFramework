@@ -1,0 +1,7 @@
+{
+    "problem_identifier": "problem_19",
+    "model_identifier": "gpt-4",
+    "prompt_identifier": "merge_sorted_arrays",
+    "solution_code": "def merge_sorted_arrays(array1: list, array2: list) -> list:\n    merged = []\n    i = j = 0\n\n    while i < len(array1) and j < len(array2):\n        if array1[i] < array2[j]:\n            merged.append(array1[i])\n            i += 1\n        else:\n            merged.append(array2[j])\n            j += 1\n\n    # Append any remaining elements from both arrays (if any)\n    while i < len(array1):\n        merged.append(array1[i])\n        i += 1\n\n    while j < len(array2):\n        merged.append(array2[j])\n        j += 1\n\n    return merged\n",
+    "feedback": null
+}

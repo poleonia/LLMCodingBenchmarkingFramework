@@ -1,0 +1,7 @@
+{
+    "problem_identifier": "problem_2",
+    "model_identifier": "gpt-4",
+    "prompt_identifier": "prompt_2",
+    "solution_code": "from typing import List\nimport math\n\ndef distance_between_points(point1, point2):\n    # Calculate the Euclidean distance between two points.\n    x1, y1 = point1\n    x2, y2 = point2\n    return math.sqrt((x1 - x2) ** 2 + (y1 - y2) ** 2)\n\ndef closest_points_distance(contour1: List[List[int]], contour2: List[List[int]]) -> float:\n    min_distance = float('inf')\n    \n    for point1 in contour1:\n        for point2 in contour2:\n            distance = distance_between_points(point1, point2)\n            if distance < min_distance:\n                min_distance = distance\n                \n    return min_distance\n",
+    "feedback": null
+}

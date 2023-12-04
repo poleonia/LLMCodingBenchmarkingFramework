@@ -1,0 +1,7 @@
+{
+    "problem_identifier": "problem_20",
+    "model_identifier": "gpt-4",
+    "prompt_identifier": "prompt_1",
+    "solution_code": "import numpy as np\nfrom typing import List\n\ndef principal_axis_alignment_comparison(contour1: List[List[int]], contour2: List[List[int]]) -> float:\n    def alignment_distance(contour):\n        # Convert the list of points to a NumPy array for easier manipulation\n        contour_array = np.array(contour)\n        \n        # Calculate the centroid of the contour\n        centroid = np.mean(contour_array, axis=0)\n        \n        # Subtract the centroid to shift the coordinates\n        shifted_contour = contour_array - centroid\n        \n        # Perform PCA to find the principal axis (eigenvector)\n        _, _, vt = np.linalg.svd(shifted_contour.T)\n        principal_axis = vt[0]\n        \n        # Calculate the average distance of points to the principal axis\n        distances = np.abs(np.dot(shifted_contour, principal_axis))\n        avg_distance = np.mean(distances)\n        \n        return avg_distance\n    \n    alignment1 = alignment_distance(contour1)\n    alignment2 = alignment_distance(contour2)\n    \n    return abs(float(alignment1) - float(alignment2))\n",
+    "feedback": null
+}

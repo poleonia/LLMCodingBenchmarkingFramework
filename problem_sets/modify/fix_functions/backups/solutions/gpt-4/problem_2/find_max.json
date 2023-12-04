@@ -1,0 +1,7 @@
+{
+    "problem_identifier": "problem_2",
+    "model_identifier": "gpt-4",
+    "prompt_identifier": "find_max",
+    "solution_code": "def find_maximum(numbers: list) -> int:\n    if len(numbers) == 0:\n        raise ValueError(\"The list is empty. Cannot find the maximum value.\")\n    \n    max_value = numbers[0]\n    for number in numbers:\n        if max_value < number:\n            max_value = number\n    return max_value\n",
+    "feedback": null
+}
